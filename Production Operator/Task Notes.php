@@ -21,7 +21,8 @@
             <a href="View Task Notes.php"><button><b>View All Notes</b></button></a>
         </div>
 
-        <table>
+        Recent
+        <table id="recent-notes-table">
             <tr>
                 <th>Note ID</th>
                 <th>Subject</th>

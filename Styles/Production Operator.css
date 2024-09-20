@@ -39,3 +39,26 @@ table {
 ul {
     list-style: none;
 }
+
+
+#view-notes-table {
+    width: 100%;
+}
+    
+
+
+#search-bar {
+    margin-bottom: 20px;
+}
+    
+#sort-button {
+    padding: 0%;
+    height: 52px;
+    width: 52px;
+
+    img {
+        padding: 0%;
+        width: 50px;
+        height: 50px;
+    }
+}

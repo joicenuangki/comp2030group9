@@ -1,0 +1,10 @@
+.floatingImage {
+    width: 100px;
+    position: fixed;
+    top: 1000px;
+    right: 1000px;
+}
+
+.button {
+    color: #3b3b3b;  
+}

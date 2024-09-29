@@ -12,17 +12,7 @@ CREATE TABLE `Employees` (
 
 CREATE TABLE `Machines` (
   `MachineID` int AUTO_INCREMENT,
-  `MachineName` VARCHAR(40) UNIQUE,
-  `Temperature` FLOAT,
-  `Pressure` FLOAT,
-  `Vibration` FLOAT,
-  `Humidity` FLOAT,
-  `PowerConsumption` FLOAT,
-  `OperationStatus` TINYINT(1),
-  `ErrorCode` CHAR(4),
-  `ProductionCount` INT,
-  `MaintenanceLog` VARCHAR(50),
-  `Speed` FLOAT,
+  `MachineName` VARCHAR(40) NOT NULL UNIQUE,
   PRIMARY KEY (MachineID)
 );
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Production Operator.css"> <!-- this will be changed -->
+    <title>Update Machines</title>
+</head>
+<body>
+    <header>
+        <?php include '../inc/header.inc.php';?>
+        <h1>Update Machine</h1>
+        <div id="user-role">Role:</div>
+    </header>
+    <main>
+        
+    </main>
+    
+</body>
+</html>

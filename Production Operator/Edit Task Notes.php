@@ -33,11 +33,15 @@
                 <li><label for="time-observed-field">Time Observed</label> <input type="time"> If no time is selected, time will default to the current time </li>
             </ul>
 
-            <input type="submit" value="Create">
+            <ul>
+                <li><input type="submit" value="Update"></li>
+                <li><a href="Task Notes.php"><button>Cancel</button></a></li>
+                <li><a href="Note Deletion.php"><button>Delete</button></a></li>
+            </ul>
 
         </form>
 
-        <a href="Task Notes.php"><button>Cancel</button></a>
+        
 
     </main>
 </body>

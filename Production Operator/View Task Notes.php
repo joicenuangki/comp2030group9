@@ -13,10 +13,11 @@
         <h1>View Task Notes</h1>
         <div id="user-role">Role:</div>
     </header>
-    <main>
+    <main id="view-task-note-main">
         <input type="text" placeholder="Search" id="search-bar">
         <label for="sort-button">Sort By: </label><button id="sort-button"><img src="../images/Sort_IMG.png" alt="Sort"></button>
-        <table id="view-notes-table">
+        <a href="Task Notes.php" id="task-notes-back"><button>Back to Task Notes</button></a>
+        <table>
             <tr>
                 <th>Note ID</th>
                 <th>Subject</th>
@@ -26,42 +27,35 @@
                 <th>Note</th>
                 <th></th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</a></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</a></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</a></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</a></td>
-            </tr>
+            <?php
+            require_once "../inc/dbconn.inc.php";
+
+            $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR ', ') AS AssignedFactoryManagers, Jobs.Name, NoteContence
+                    FROM Notes
+                    JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
+                    JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
+                    JOIN Jobs ON Notes.JobID = Jobs.JobID
+                    WHERE Notes.Completed = 0
+                    GROUP BY Notes.NoteID DESC;";
+
+            if($result = mysqli_query($conn, $sql)) {
+                
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo("<tr>
+                            <td>$row[NoteID]</td>
+                            <td>$row[Subject]</td>
+                            <td>$row[AssignedFactoryManagers]</td>
+                            <td>$row[TimeObserved]</td>
+                            <td>$row[Name]</td>
+                            <td>$row[NoteContence]</td>
+                            <td><a href='Edit Task Notes.php?noteid=$row[NoteID]'>Edit</a></td>
+                        </tr>");
+                }
+            }
+
+            mysqli_close($conn);
+            ?>
+            
         </table>
     </main>
     

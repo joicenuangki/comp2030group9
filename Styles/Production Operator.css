@@ -1,64 +1,103 @@
-.task-note-button {
-    margin-bottom: 20px;
+#task-note-main {
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
 
-    button {
-        padding: 10%;
-        padding-bottom: 5%;
-        padding-top: 5%;
-        font-size: 32px;
+    #task-note-buttons {
+        a {
+            button {
+                width: 500px;
+                height: 200px;
+                padding: 100px;
+                padding-bottom: 10%;
+                padding-top: 10%;
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    table {
+        border-collapse:collapse;
+        tr {
+            background-color: #aaaaaa;
+        }
+    
+        td {
+            border: black 2px solid;
+            padding: 5px;
+        }
+    
+        th {
+            padding: 5px;
+            background-color: #5a5a5a;
+            border: black 2px solid;
+        }
+    
+        a {
+            text-decoration: none;
+            color: blue;
+        }
     }
 }
 
-table {
-    border-collapse:collapse;
+#view-task-note-main {
+    #search-bar {
+        margin-bottom: 20px;
+    }
+        
+    #sort-button {
+        padding: 0%;
+        height: 52px;
+        width: 52px;
     
+        img {
+            padding: 0%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    #task-notes-back {
+        display: inline;
+        margin-left: 50%;
+        margin-bottom: 20px;
+        button {
+            padding: 10px;
+        }
+    }
     
-
-    tr {
-        background-color: #aaaaaa;
-
-    }
-
-    td {
-        border: black 2px solid;
-        padding: 5px;
-    }
-
-    th {
-        padding: 5px;
-        background-color: #5a5a5a;
-        border: black 2px solid;
-    }
-
-    a {
-        text-decoration: none;
-        color: blue;
+    table {
+        width: 100%;
+        border-collapse:collapse;
+        tr {
+            background-color: #aaaaaa;
+        }
+    
+        td {
+            border: black 2px solid;
+            padding: 5px;
+        }
+    
+        th {
+            padding: 5px;
+            background-color: #5a5a5a;
+            border: black 2px solid;
+        }
+    
+        a {
+            text-decoration: none;
+            color: blue;
+        }
     }
 }
+
 
 ul {
     list-style: none;
-}
-
-
-#view-notes-table {
-    width: 100%;
+    padding-left: 0px;
 }
     
 
 
-#search-bar {
-    margin-bottom: 20px;
-}
-    
-#sort-button {
-    padding: 0%;
-    height: 52px;
-    width: 52px;
-
-    img {
-        padding: 0%;
-        width: 50px;
-        height: 50px;
-    }
-}

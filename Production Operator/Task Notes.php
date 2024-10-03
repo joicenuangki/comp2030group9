@@ -13,53 +13,69 @@
         <h1>Task Notes</h1>
         <div id="user-role">Role:</div>
     </header>
-    <main>
-        <div class="task-note-button">
-            <a href="Create Task Notes.php"><button><b>Create New Note</b></button></a>
-        </div>
-        <div class="task-note-button">
-            <a href="View Task Notes.php"><button><b>View All Notes</b></button></a>
-        </div>
+    <main id="task-note-main">
+        <ul>
+            <li>
+                <div id="task-note-buttons">
+                    <a href="Create Task Notes.php"><button><b>Create New Note</b></button></a><br>
+                    <a href="View Task Notes.php"><button><b>View All Notes</b></button></a>
+                </div>
+            </li>
+            <li>
+                <div id="task-note-recent-table">
+                Recent
+                <table id="recent-notes-table">
+                    <tr>
+                        <th>Note ID</th>
+                        <th>Subject</th>
+                        <th>Assigned Manager/s</th>
+                        <th>Time Observed</th>
+                        <th></th>
+                    </tr>
+                    <?php
+                    require_once "../inc/dbconn.inc.php";
 
-        Recent
-        <table id="recent-notes-table">
-            <tr>
-                <th>Note ID</th>
-                <th>Subject</th>
-                <th>Assigned Manager/s</th>
-                <th>Time Observed</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</a></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</td></a>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</td></a>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="Edit Task Notes.php">Edit</td></a>
-            </tr>
-        </table>
+                    $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR ', ') AS AssignedFactoryManagers
+                            FROM Notes
+                            JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
+                            JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
+                            WHERE Completed = 0
+                            GROUP BY Notes.NoteID DESC;";
+
+                    if($result = mysqli_query($conn, $sql)) {
+                        if (1 <= mysqli_num_rows($result)) {
+                            if(5 <= mysqli_num_rows($result)) {
+                                for($i = 0; $i < 5; $i++) {
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo("<tr>
+                                            <td>$row[NoteID]</td>
+                                            <td>$row[Subject]</td>
+                                            <td>$row[AssignedFactoryManagers]</td>
+                                            <td>$row[TimeObserved]</td>
+                                            <td><a href='Edit Task Notes.php?noteid=$row[NoteID]'>Edit</a></td>
+                                    </tr>");
+                                }
+                            }
+                            else {
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    echo("<tr>
+                                            <td>$row[NoteID]</td>
+                                            <td>$row[Subject]</td>
+                                            <td>$row[AssignedFactoryManagers]</td>
+                                            <td>$row[TimeObserved]</td>
+                                            <td><a href='Edit Task Notes.php?noteid=$row[NoteID]'>Edit</a></td>
+                                        </tr>");
+                                }
+                            }
+                        }
+                    }
+                    mysqli_close($conn);
+                    ?>
+                </table>
+                </div>
+            </li>
+        </ul>
     </main>
-    
+
 </body>
 </html>

@@ -14,28 +14,47 @@
         <div id="user-role">Role:</div>
     </header>
     <main>
-        <form action="Task Notes.php">
+        <?php
+
+        require_once '../inc/dbconn.inc.php';
+
+        echo("<form action='Task Note Creation.php' method='post'>
             <ul>
-                <li><label for="subject-field">Subject</label> <input id="subject-field" type="text" required></li>
-                <li><label for="note-field">Note</label> <input id="note-field" type="textarea" required></li>
-                <li><label for="active-task-field">Active Task</label> <select id="active-task-field"> 
-                    <option value="test">Test1</option>
-                    <option value="test">Test2</option>
-                    <option value="test">Test3</option>
-                    <option value="test">Test4</option></select>
-                    Check box for no task <input type="checkbox"></li> 
-                <li><label for="assign-to-field">Assign To</label> <select id="assign-to-field">
-                    <option value="test">Test1</option>
-                    <option value="test">Test2</option>
-                    <option value="test">Test3</option>
-                    <option value="test">Test4</option></select></li>
-                <li><label for="date-observed-field">Date Observed</label> <input type="date"> If no date is selected, date will default to todays date </li>
-                <li><label for="time-observed-field">Time Observed</label> <input type="time"> If no time is selected, time will default to the current time </li>
+                <li><label for='subject-field'>Subject</label> <input id='subject-field' type='text' name='subject' required></li>
+                <li><label for='note-field'>Note</label> <input id='note-field' type='textarea' name='note' required></li>
+                <li><label for='active-task-field'>Active Task</label> <select id='active-task-field' name='task'>
+
+                <option value=''>&lt;No Task&gt;</option>");
+                $sql = "SELECT JobID, Name FROM Jobs;";
+                if($result = mysqli_query($conn, $sql)) {
+                    if (1 <= mysqli_num_rows($result)) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo("<option value='$row[JobID]'>$row[Name]</option>");
+                        }
+                    }
+                }
+
+                echo("</select></li> 
+                <li><label for='assign-to-field'>Assign To</label> <select id='assign-to-field' name='assign'>");
+                $sql = "SELECT EmployeeID, FName, LName FROM Employees WHERE Role = 'Factory Manager';";
+                if($result = mysqli_query($conn, $sql)) {
+                    if (1 <= mysqli_num_rows($result)) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo("<option value='$row[EmployeeID]'>$row[FName] $row[LName]</option>");
+                        }
+                    }
+                }
+                echo("
+                </select></li>
+                <li><label for='datetime-observed-field'>Date & Time Observed</label> <input id='datetime-observed-field' type='datetime-local' name='datetime'> If no date is selected, date will default to todays date </li>
             </ul>
 
-            <input type="submit" value="Create">
+            <input type='submit' value='Create'>
 
-        </form>
+        </form>");
+
+        mysqli_close($conn);
+        ?>
 
         <a href="Task Notes.php"><button>Cancel</button></a>
 

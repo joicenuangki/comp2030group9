@@ -4,9 +4,10 @@ USE webdev_db;
 
 CREATE TABLE `Employees` (
   `EmployeeID` int AUTO_INCREMENT,
-  `Role` ENUM('Production Operator', 'Factory Manager', 'Administrator', 'Auditor'),
-  `FName` VARCHAR(15),
-  `LName` VARCHAR(15),
+  `Role` ENUM('Production Operator', 'Factory Manager', 'Administrator', 'Auditor') NOT NULL,
+  `FName` VARCHAR(15) NOT NULL,
+  `LName` VARCHAR(15) NOT NULL,
+  `Passowrd` CHAR(20) NOT NULL,
   PRIMARY KEY (`EmployeeID`)
 );
 
@@ -20,6 +21,7 @@ CREATE TABLE `Jobs` (
   `JobID` int AUTO_INCREMENT,
   `MachineID` int,
   `Name` VARCHAR(25) NOT NULL,
+  `Desc` VARCHAR(250),
   `Priority` ENUM('Low','Medium','High') NOT NULL,
   `AssignedDate` DATE NOT NULL DEFAULT (CURRENT_DATE),
   `Completed` TINYINT(1) NOT NULL DEFAULT 0,
@@ -40,6 +42,13 @@ CREATE TABLE `Notes` (
   PRIMARY KEY (`NoteID`),
   FOREIGN KEY (`JobID`) REFERENCES `Jobs`(`JobID`), 
   FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`)
+);
+
+CREATE TABLE `Specialization` (
+  `ProductionOperatorID` int,
+  `Specialization` ENUM('None', 'Machine Loader', 'Robot Overseer', 'CNC Machine Overseer', '3D Printer Overseer', 'Guided Vehicle Overseer', 'Maintenance', 'Assembily Line Overseer', 'Conveyor Overseer'),
+  PRIMARY KEY (`ProductionOperatorID`),
+  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmloyeeID`)
 );
 
 CREATE TABLE `Assigned to Jobs` (

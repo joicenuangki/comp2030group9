@@ -19,11 +19,12 @@
         require_once '../inc/dbconn.inc.php';
 
         echo("<form action='Task Note Creation.php' method='post'>
-            <ul>
+            <ul id='create-note-form-list'>
+            <li><ul>
                 <li><label for='subject-field'>Subject</label> <input id='subject-field' type='text' name='subject' required></li>
                 <li><label for='note-field'>Note</label> <input id='note-field' type='textarea' name='note' required></li>
-                <li><label for='active-task-field'>Active Task</label> <select id='active-task-field' name='task'>
 
+                <li><label for='active-task-field'>Active Task</label> <select id='active-task-field' name='task'>
                 <option value=''>&lt;No Task&gt;</option>");
                 $sql = "SELECT JobID, Name FROM Jobs;";
                 if($result = mysqli_query($conn, $sql)) {
@@ -33,21 +34,32 @@
                         }
                     }
                 }
-
                 echo("</select></li> 
-                <li><label for='assign-to-field'>Assign To</label> <select id='assign-to-field' name='assign'>");
+                <li><label for='datetime-observed-field'>Date & Time Observed</label> <input id='datetime-observed-field' type='datetime-local' name='datetime'> If left blank will default to current time</li>
+            </ul></li>
+
+            <li><ul>
+                    <li><b>Assigned Managers:</b></li>");
+
                 $sql = "SELECT EmployeeID, FName, LName FROM Employees WHERE Role = 'Factory Manager';";
                 if($result = mysqli_query($conn, $sql)) {
                     if (1 <= mysqli_num_rows($result)) {
+                        $count = 0;
                         while($row = mysqli_fetch_assoc($result)) {
-                            echo("<option value='$row[EmployeeID]'>$row[FName] $row[LName]</option>");
+                            echo("
+                                <li>
+                                <label for='manager$count'>$row[FName] $row[LName]</label>
+                                <input type='hidden' name='manager$count' value=''>
+                                <input type='checkbox' name='manager$count' id='manager$count' value='$row[EmployeeID]'>
+                                </li>");
+                            $count++;
                         }
                     }
                 }
-                echo("
-                </select></li>
-                <li><label for='datetime-observed-field'>Date & Time Observed</label> <input id='datetime-observed-field' type='datetime-local' name='datetime'> If no date is selected, date will default to todays date </li>
-            </ul>
+                echo("</ul>
+            </li></ul>
+
+            <input type='hidden' name='count' value='$count'>
 
             <input type='submit' value='Create'>
 

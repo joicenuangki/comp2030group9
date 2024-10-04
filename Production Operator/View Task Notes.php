@@ -32,9 +32,9 @@
 
             $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR ', ') AS AssignedFactoryManagers, Jobs.Name, NoteContence
                     FROM Notes
-                    JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
-                    JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
-                    JOIN Jobs ON Notes.JobID = Jobs.JobID
+                    LEFT JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
+                    LEFT JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
+                    LEFT JOIN Jobs ON Notes.JobID = Jobs.JobID
                     WHERE Notes.Completed = 0
                     GROUP BY Notes.NoteID DESC;";
 

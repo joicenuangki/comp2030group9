@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require_once '../inc/loggedin.inc.php' ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
@@ -9,7 +10,7 @@
 </head>
 <body>
     <header>
-        <?php include '../inc/header.inc.php';?>
+        <?php include_once '../inc/header.inc.php';?>
         <h1>Edit Task Note</h1>
         <div id="user-role">Role:</div>
     </header>
@@ -74,7 +75,7 @@
         </form>
 
         <a href='Task Notes.php'><button>Cancel</button></a> <br>
-        <a href='Note Deletion.php'><button>Delete</button></a>");
+        <a href='Note Deletion.php?noteID=$NoteID'><button>Delete</button></a>");
 
         mysqli_close($conn);
 

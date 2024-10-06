@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require_once "../inc/loggedin.inc.php"; ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/Style.css">
     <link rel="stylesheet" href="../Styles/Production Operator.css">
-    <title>Note Deletion Succesful</title>
+    <title>Note Deletion Successful</title>
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
             alt="Ribbon"
             class="floating-image"
          /> 
-        <h3>Deletion Succesful!<h3>
+        <h3>Deletion Successful!<h3>
     </header>
     <main>
         <a href="Task Notes.php"><button>Return to Notes Overview</button></a><br>

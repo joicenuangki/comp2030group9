@@ -1,8 +1,10 @@
 <?php
 
+require_once "../inc/loggedin.inc.php";
 require_once "../inc/dbconn.inc.php";
 
-$id = 1;
+
+$id = $_SESSION['employeeID'];
 
 $subject = $_POST['subject'];
 $note = $_POST['note'];
@@ -86,4 +88,4 @@ foreach($managers as $managerID) {
 
 mysqli_close($conn);
 
-header("location: Task Notes.php");
+header("Location: Task Notes.php");

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require_once "../inc/loggedin.inc.php"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
@@ -9,16 +10,18 @@
 </head>
 <body>
     <header>
-        <?php include '../inc/header.inc.php';?>
+        <?php include_once "../inc/header.inc.php"; ?>
         <h1>Create New Task Note</h1>
-        <div id="user-role">Role:</div>
+        <div id="user-role">Role:
+            <?php echo($_SESSION['role']); ?>
+        </div>
     </header>
     <main>
         <?php
 
         require_once '../inc/dbconn.inc.php';
 
-        echo("<form action='Task Note Creation.php' method='post'>
+        echo("<form action='Note Creation.php' method='post'>
             <ul id='create-note-form-list'>
             <li><ul>
                 <li><label for='subject-field'>Subject</label> <input id='subject-field' type='text' name='subject' required></li>

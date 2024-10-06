@@ -1,19 +1,21 @@
 <?php
+require_once "../inc/loggedin.inc.php";
 require_once "../inc/dbconn.inc.php";
 
-$sql = "SELECT employeeID, FName, LName, Role FROM Employees ORDER BY employeeID DESC";
+$NoteID = $_GET['noteID'];
 
+$sql = "UPDATE Notes SET Completed = 1  WHERE NoteID = ?;";
 
-if($result = mysqli_query($conn, $sql)) {
-    if(1 <= mysqli_num_rows($result)) {
-        while($row = mysqli_fetch_assoc($result)) {
-            echo("$row[employeeID] $row[FName] $row[LName] $row[Role]<br>");
-        }
-    }
+$statement = mysqli_stmt_init($conn);
+
+mysqli_stmt_prepare($statement, $sql); 
+mysqli_stmt_bind_param($statement, 'i', $NoteID);
+
+if(mysqli_stmt_execute($statement)) {
+    header("Location: ../Production Operator/Note Deletion Successful.php");
 }
-
-
-
-
+else {
+    echo(mysqli_error($conn));
+}
 
 mysqli_close($conn);

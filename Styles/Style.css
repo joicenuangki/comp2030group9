@@ -21,6 +21,9 @@ header {
         font-size: 20px;
         list-style: none;
         border-bottom: #3b3b3b 1px solid;
+
+        display: flex;
+        justify-content: space-between;
         
 
         a {
@@ -28,6 +31,7 @@ header {
             color: #3b3b3b;
         }
         li {
+            padding-left: 20px;
             padding-right: 20px;
             display: inline;
         }

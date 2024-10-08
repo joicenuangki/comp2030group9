@@ -29,24 +29,13 @@ while($count < $totalCount) {
     $count++;
 }
 
-
-
-
-
 if($datetime != '') 
 {
     $sql = "INSERT INTO Notes (Subject, NoteContence, JobID, ProductionOperatorID, TimeObserved) VALUES(?, ?, ?, ?, ?);";
     $statement = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($statement, $sql); 
-    mysqli_stmt_bind_param($statement, 'sssis', $subject, $note, $task, $id, $datetime);
-
-    if(mysqli_stmt_execute($statement)) {
-
-    }
-    else {
-        echo(mysqli_error($conn));
-    }
+    mysqli_stmt_bind_param($statement, 'ssiis', $subject, $note, $task, $id, $datetime);
 }
 else
 {
@@ -54,15 +43,13 @@ else
     $statement = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($statement, $sql); 
-    mysqli_stmt_bind_param($statement, 'sssi', $subject, $note, $task, $id);
-
-    if(mysqli_stmt_execute($statement)) {
-
-    }
-    else {
-        echo(mysqli_error($conn));
-    }
+    mysqli_stmt_bind_param($statement, 'ssii', $subject, $note, $task, $id);
 }
+if(!mysqli_stmt_execute($statement)) {
+    echo(mysqli_error($conn));
+    exit;
+}
+
 
 $sql ="SELECT Max(NoteID) AS `CurrentID` FROM Notes;";
 
@@ -77,10 +64,7 @@ foreach($managers as $managerID) {
     mysqli_stmt_prepare($statement, $sql); 
     mysqli_stmt_bind_param($statement, 'ii', $managerID, $NoteID);
 
-    if(mysqli_stmt_execute($statement)) {
-        
-    }
-    else {
+    if(!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));
     }
 }

@@ -22,7 +22,7 @@
         require_once '../inc/dbconn.inc.php';
 
         echo("<form action='Note Creation.php' method='post'>
-            <ul id='create-note-form-list'>
+            <ul id='note-form-list'>
             <li><ul>
                 <li><label for='subject-field'>Subject</label> <input id='subject-field' type='text' name='subject' required></li>
                 <li><label for='note-field'>Note</label> <input id='note-field' type='textarea' name='note' required></li>
@@ -42,7 +42,7 @@
             </ul></li>
 
             <li><ul>
-                    <li><b>Assigned Managers:</b></li>");
+                    <li><b>Assign Managers:</b></li>");
 
                 $sql = "SELECT EmployeeID, FName, LName FROM Employees WHERE Role = 'Factory Manager';";
                 if($result = mysqli_query($conn, $sql)) {

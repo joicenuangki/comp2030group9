@@ -14,12 +14,13 @@ CREATE TABLE `Employees` (
 CREATE TABLE `Machines` (
   `MachineID` int AUTO_INCREMENT,
   `MachineName` VARCHAR(50) NOT NULL UNIQUE,
+  `Description` VARCHAR(500),
   PRIMARY KEY (MachineID)
 );
 
 CREATE TABLE `Jobs` (
   `JobID` int AUTO_INCREMENT,
-  `MachineID` int,
+  `MachineID` int DEFAULT NULL,
   `Name` VARCHAR(50) NOT NULL,
   `Desc` VARCHAR(1000),
   `Priority` ENUM('Low','Medium','High') NOT NULL,
@@ -27,48 +28,48 @@ CREATE TABLE `Jobs` (
   `Completed` TINYINT(1) NOT NULL DEFAULT 0,
   `FactoryManagerID` int NOT NULL,
   PRIMARY KEY (`JobID`),
-  FOREIGN KEY (`MachineID`) REFERENCES `Machines`(`MachineID`),
-  FOREIGN KEY (`FactoryManagerID`) REFERENCES `Employees`(`EmployeeID`)
+  FOREIGN KEY (`MachineID`) REFERENCES `Machines`(`MachineID`) ON DELETE SET NULL ON UPDATE SET NULL,
+  FOREIGN KEY (`FactoryManagerID`) REFERENCES `Employees`(`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Notes` (
   `NoteID` int AUTO_INCREMENT,
-  `JobID` int,
+  `JobID` int DEFAULT NULL,
   `Subject` VARCHAR(50) NOT NULL,
   `TimeObserved` DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
   `NoteContence` VARCHAR(1000) NOT NULL,
   `Completed` TINYINT(1) NOT NULL DEFAULT 0,
   `ProductionOperatorID` int NOT NULL,
   PRIMARY KEY (`NoteID`),
-  FOREIGN KEY (`JobID`) REFERENCES `Jobs`(`JobID`), 
-  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`)
+  FOREIGN KEY (`JobID`) REFERENCES `Jobs`(`JobID`) ON DELETE SET NULL ON UPDATE SET NULL, 
+  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Specialization` (
   `ProductionOperatorID` int,
   `Specialization` ENUM('None', 'Machine Loader', 'Robot Overseer', 'CNC Machine Overseer', '3D Printer Overseer', 'Guided Vehicle Overseer', 'Maintenance', 'Assembily Line Overseer', 'Conveyor Overseer') NOT NULL DEFAULT ('None'),
   PRIMARY KEY (`ProductionOperatorID`),
-  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`)
+  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Assigned to Jobs` (
   `JobID` int,
   `ProductionOperatorID` int,
-  FOREIGN KEY (`JobID`) REFERENCES `Jobs`(`JobID`),
-  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`),
+  FOREIGN KEY (`JobID`) REFERENCES `Jobs`(`JobID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`ProductionOperatorID`) REFERENCES `Employees`(`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT PK_AssignToNote PRIMARY KEY (`JobID`, `ProductionOperatorID`)
 );
 
 CREATE TABLE `Assigned to Notes` (
   `NoteID` int,
   `FactoryManagerID` int,
-  FOREIGN KEY (`NoteID`) REFERENCES `Notes`(`NoteID`),
-  FOREIGN KEY (`FactoryManagerID`) REFERENCES `Employees`(`EmployeeID`),
+  FOREIGN KEY (`NoteID`) REFERENCES `Notes`(`NoteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`FactoryManagerID`) REFERENCES `Employees`(`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT PK_AssignToNote PRIMARY KEY (`NoteID`, `FactoryManagerID`)
 );
 
 CREATE TABLE `Factory Logs` (
-  `timestamp` DATETIME DEFAULT (CURRENT_TIMESTAMP),
+  `timestamp` TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
   `machine_name` VARCHAR(40),
   `temperature` FLOAT,
   `pressure` FLOAT,
@@ -81,7 +82,7 @@ CREATE TABLE `Factory Logs` (
   `maintenance_log` VARCHAR(50),
   `speed` FLOAT,
   CONSTRAINT PK_FacLogs PRIMARY KEY (timestamp, machine_name),
-  FOREIGN KEY (machine_name) REFERENCES Machines(MachineName)
+  FOREIGN KEY (machine_name) REFERENCES Machines(MachineName) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
@@ -94,8 +95,17 @@ GRANT all privileges ON webdev_db.`Assigned to Jobs` TO dbadmin@localhost;
 GRANT all privileges ON webdev_db.`Assigned to Notes` TO dbadmin@localhost;
 GRANT all privileges ON webdev_db.`Factory Logs` TO dbadmin@localhost;
 
-INSERT INTO Machines (MachineName) VALUES
-  ('CNC Machine'), ('3D Printer'), ('Industrial Robot'), ('Automated Guided Vehicle (AGV)'), ('Smart Conveyor System'), ('IoT Sensor Hub'), ('Predictive Maintenance System'), ('Automated Assembly Line'), ('Quality Control Scanner'), ('Energy Management System');
+INSERT INTO Machines (MachineName, Description) VALUES
+  ('CNC Machine', 'The Computer Numerical Control Machine is a semi automatic machine that uses sets of programed instructions to operate'), 
+  ('3D Printer', 'The 3D Printer is an automatic machine capable of despencing a hot fillament that can harden forming layers that produce 3D products out of plastics such as PLA and ABS'), 
+  ('Industrial Robot', 'The robot is an arm shaped machine responsible for lifting, welding and scanning items off the conveyor belt'), 
+  ('Automated Guided Vehicle (AGV)', 'A vehicle that is capable of transporting items, particualy boxes across the factory floor typically to and from storage and production lines'), 
+  ('Smart Conveyor System', 'A system that controles all aspects of conveyors around the factory, including speed, direction and throughput'), 
+  ('IoT Sensor Hub', 'The Internet of Things Sensor Hub detects and connects devices to the local network'), 
+  ('Predictive Maintenance System', 'A system that runs tests on other machines to detect when maintenance will be required before a failure occurs'), 
+  ('Automated Assembly Line', 'A series of machines that can produce products with minimal to no human input'), 
+  ('Quality Control Scanner', 'A scanner that scans all products on the factory line to ensure their quality and that the automated process succeded'), 
+  ('Energy Management System', 'A system that monitors, reports and manages the factories energy usage of each machine connected to the power');
 
 INSERT INTO Employees (Role, FName, LName, Password) VALUES
   ('Production Operator', 'John', 'Miller', '1234'),

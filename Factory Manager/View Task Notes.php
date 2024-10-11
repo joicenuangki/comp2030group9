@@ -17,7 +17,7 @@
     <main id="view-task-note-main">
         <input type="text" placeholder="Search" id="search-bar">
         <label for="sort-button">Sort By: </label><button id="sort-button"><img src="../images/Sort_IMG.png" alt="Sort Button"></button>
-        <a href="Task Notes.php" id="task-notes-back"><button>Back to Task Notes</button></a>
+        <a href="HomePage.php" id="task-notes-back"><button>Back to Home Page</button></a>
         <table>
             <tr>
                 <th>Note ID</th>
@@ -26,16 +26,19 @@
                 <th>Time Observed</th>
                 <th>Active Task</th>
                 <th>Note</th>
-                <th></th>
             </tr>
             <?php
             require_once "../inc/dbconn.inc.php";
 
-            $sql = "SELECT Notes.NoteID, Subject, ProductionOperatorID, TimeObserved, Name, CONCAT(FName, ' ', LName) AS FullName, NoteContence FROM Notes
-                    JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
-                    JOIN Jobs ON Notes.JobID = Jobs.JobID
+
+
+            $sql = "SELECT Notes.NoteID, Notes.Subject, Notes.TimeObserved, Jobs.Name, CONCAT (Employees.FName, ' ', Employees.LName) AS FullName, Notes.NoteContence, `Assigned to Notes`.FactoryManagerID
+                    FROM Notes
+                    LEFT JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
+                    LEFT JOIN Jobs ON Notes.JobID = Jobs.JobID
                     JOIN Employees ON Notes.ProductionOperatorID = Employees.EmployeeID
-                    WHERE `Assigned to Notes`.FactoryManagerID = " . $_SESSION['employeeID'] . ";";
+                    WHERE Notes.Completed = 0 AND `Assigned to Notes`.FactoryManagerID = " . $_SESSION['employeeID'] ."
+                    ORDER BY Notes.NoteID DESC;";
 
             if($result = mysqli_query($conn, $sql)) {
                 
@@ -47,7 +50,6 @@
                             <td>$row[TimeObserved]</td>
                             <td>$row[Name]</td>
                             <td>$row[NoteContence]</td>
-                            <td><a href='Edit Task Notes.php?noteid=$row[NoteID]'>Edit</a></td>
                         </tr>");
                 }
             }

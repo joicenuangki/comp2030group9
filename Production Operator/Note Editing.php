@@ -1,6 +1,7 @@
 <?php
 
 require_once "../inc/loggedin.inc.php";
+ProductionOperatorCheck();
 require_once "../inc/dbconn.inc.php";
 
 
@@ -75,6 +76,7 @@ foreach($assignedManagers as $managerID) {
 
     if(!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));
+        exit;
     }
 }
 
@@ -87,6 +89,7 @@ foreach($unassignedManagers as $managerID) {
 
     if(!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));
+        exit;
     }
 }
 

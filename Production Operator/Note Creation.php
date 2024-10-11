@@ -1,6 +1,7 @@
 <?php
 
 require_once "../inc/loggedin.inc.php";
+ProductionOperatorCheck();
 require_once "../inc/dbconn.inc.php";
 
 

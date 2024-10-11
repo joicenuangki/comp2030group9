@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Styles/Administrator.css">
     <title>Manage User Accounts</title>
     <?php
-$servername = "Server_Name_Here"; // e.g., "localhost"
+$servername = "Server_Name_Here";
 $username = "Username"; 
 $password = "Password";
 $dbname = "Database"; 

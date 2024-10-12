@@ -15,6 +15,7 @@ CREATE TABLE `Machines` (
   `MachineID` int AUTO_INCREMENT,
   `MachineName` VARCHAR(50) NOT NULL UNIQUE,
   `Description` VARCHAR(500),
+  `Decommissioned` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (MachineID)
 );
 

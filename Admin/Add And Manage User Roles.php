@@ -58,5 +58,5 @@ if ($roleName != '') {
 
 mysqli_close($conn);
 
-header("Location: ManageRoles.php");
+header("Location: Add And Manage User Roles.php");
 ?>

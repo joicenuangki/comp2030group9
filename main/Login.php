@@ -15,7 +15,7 @@ if(isset($_POST['employeeID']) && isset($_POST['password'])) {
         $_SESSION['employeeID'] = $row['EmployeeID'];
         $_SESSION['role'] = $row['Role'];
 
-        header("Location: ../main/HomePage.php");
+        header("Location: ../main");
     }
     else {
         header("Location: ../main/LoginPage.php");

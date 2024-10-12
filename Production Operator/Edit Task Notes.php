@@ -10,8 +10,8 @@
         $NoteID = $_GET['noteid'];
 
         $sql = "SELECT ProductionOperatorID, Subject, NoteContence, JobID, TimeObserved FROM Notes WHERE NoteID = ?;";
+        
         $statement = mysqli_prepare($conn, $sql);
-
         mysqli_stmt_bind_param($statement, "i", $NoteID);
         if(!mysqli_stmt_execute($statement)) {
             echo(mysqli_error($conn));
@@ -45,7 +45,7 @@
         <div id="user-role">Role:</div>
     </header>
     <main>
-        <form action='Note Editing.php' method='post'>
+        <form action='./Note Modification.php' method='post'>
             <b>Note ID: <?php echo($NoteID);?></b>
             <ul id='note-form-list'>
                 <li><ul>
@@ -90,7 +90,7 @@
 
                 $sql = "SELECT FName, LName, FactoryManagerID FROM Employees
                         JOIN `Assigned to Notes` ON EmployeeID = FactoryManagerID
-                        WHERE `Assigned to Notes`.NoteID = ?";
+                        WHERE `Assigned to Notes`.NoteID = ?;";
 
                 $statement = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($statement, "i", $NoteID);
@@ -106,9 +106,9 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo("
                             <li>
-                            <label for='assignedManager$assignedCount'>{$row['FName']} {$row['LName']}</label>
-                            <input type='hidden' name='assignedManager$assignedCount' value='{$row['FactoryManagerID']}'>
-                            <input type='checkbox' name='assignedManager$assignedCount' id='assignedManager$assignedCount' value='' checked>
+                                <label for='assignedManager$assignedCount'>{$row['FName']} {$row['LName']}</label>
+                                <input type='hidden' name='assignedManager$assignedCount' value='{$row['FactoryManagerID']}'>
+                                <input type='checkbox' name='assignedManager$assignedCount' id='assignedManager$assignedCount' value='' checked>
                             </li>");
                         $assignedCount++;
                     }
@@ -156,12 +156,13 @@
             <input type='hidden' name='unassignedCount' value='<?php echo($unassignedCount);?>'>
             <input type='hidden' name='noteID' value='<?php echo($NoteID);?>'>
             
-            <input type='submit' value='Update'> <br>
+            <input type='submit' name='action' value='Update'> <br>
+            
+            <input type='submit' name='action' value='Delete'>
 
         </form>
 
-        <a href='Task Notes.php'><button>Cancel</button></a> <br>
-        <a href='Note Deletion.php?noteID=$NoteID'><button>Delete</button></a>
+            <a href='./Task Notes.php'><button>Cancel</button></a> <br>
 
     </main>
 </body>

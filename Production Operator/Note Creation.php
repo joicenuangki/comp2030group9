@@ -33,17 +33,15 @@ while($count < $totalCount) {
 if($datetime != '') 
 {
     $sql = "INSERT INTO Notes (Subject, NoteContence, JobID, ProductionOperatorID, TimeObserved) VALUES(?, ?, ?, ?, ?);";
-    $statement = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($statement, $sql); 
+    $statement = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($statement, 'ssiis', $subject, $note, $task, $id, $datetime);
 }
 else
 {
     $sql = "INSERT INTO Notes (Subject, NoteContence, JobID, ProductionOperatorID) VALUES(?, ?, ?, ?);";
-    $statement = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($statement, $sql); 
+    $statement = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($statement, 'ssii', $subject, $note, $task, $id);
 }
 if(!mysqli_stmt_execute($statement)) {
@@ -60,9 +58,8 @@ $NoteID = $row['CurrentID'];
 
 foreach($managers as $managerID) {
     $sql = "INSERT INTO `Assigned to Notes` (FactoryManagerID, NoteID) VALUES(?, ?);";
-    $statement = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($statement, $sql); 
+    $statement = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($statement, 'ii', $managerID, $NoteID);
 
     if(!mysqli_stmt_execute($statement)) {

@@ -5,7 +5,7 @@
     AdministratorCheck();?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Joice" /><!-- TODO: enter your name as the content attribute value -->
+    <meta name="author" content="Benjamin" />
     <meta name="description" content="Practical 1" />
     <link rel="stylesheet" href="../Styles/Style.css">
     <title>My Portfolio</title>

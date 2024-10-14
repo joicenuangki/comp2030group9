@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/Style.css">
     <link rel="stylesheet" href="../Styles/Production Operator.css">
-    <title>Note Deletion Successful</title>
+    <title>Note Creation Successful</title>
 </head>
 <body id="success-body">
     <header>
         <?php require_once "../inc/header.inc.php"; ?>
-        <h1>Deleted Successfully!</h1>
+        <h1>Note Created Successfully!</h1>
     </header>
     <main>
         <img 

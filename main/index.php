@@ -15,6 +15,6 @@ elseif($_SESSION['role'] == 'Auditor') {
     exit;
 }
 elseif($_SESSION['role'] == 'Administrator') {
-    header("Location: ../Administrator/HomePage(Admin).php");
+    header("Location: ../Admin/HomePage(Admin).php");
     exit;
 }

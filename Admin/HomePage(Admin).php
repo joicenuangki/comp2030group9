@@ -32,7 +32,7 @@
         <button>Logout</button>
 
         <img 
-        src="./Images/CM - Manufacturer option 1.jpg"
+        src="../Images/CM - Manufacturer option 1.jpg"
         alt="Ribbon"
         class="Manufactoring"
         >

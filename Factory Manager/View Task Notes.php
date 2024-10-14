@@ -17,7 +17,6 @@
     <main id="view-task-note-main">
         <input type="text" placeholder="Search" id="search-bar">
         <label for="sort-button">Sort By: </label><button id="sort-button"><img src="../images/Sort_IMG.png" alt="Sort Button"></button>
-        <a href="HomePage.php" id="task-notes-back"><button>Back to Home Page</button></a>
         <table>
             <tr>
                 <th>Note ID</th>

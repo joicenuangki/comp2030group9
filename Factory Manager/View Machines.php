@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factoy Manager.css">
+    <link rel="stylesheet" href="../Styles/Factory Manager.css">
     <title>View Machines</title>
 </head>
 <body>
@@ -16,6 +16,7 @@
         <div id="user-role"><?php DisplayInformation();?></div>
     </header>
     <main>
+        <b>WARNING:</b> Deleting Machines Also Deletes <b>ALL LOGS</b> Relating to it<br>
         <a href="./Machines.php"><button>Back to Machine Overview</button></a>
         <table id="view-machines-table">
             <th>Machine ID</th>
@@ -23,8 +24,9 @@
             <th>Machine Description</th>
             <th></th>
             <th></th>
+            <th></th>
 
-            <?php require_once '../inc/dbconn.inc.php';
+            <?php require '../inc/dbconn.inc.php';
 
             $sql = "SELECT MachineID, MachineName, Description, Decommissioned FROM Machines";
 
@@ -47,6 +49,7 @@
                                     <td><input type='text' name='description' value='$row[Description]'></td>
                                     <td><input type='submit' name='action' value='Update'></td>
                                     <td><input type='submit' name='action' value='Decommission'></td>
+                                    <td><input type='submit' name='action' value='Delete'></td>
                                 </tr>
                                 <input type='hidden' name='machineID' value='$row[MachineID]'>
                             </form>");
@@ -60,6 +63,7 @@
                                     <td><input type='text' name='description' value='$row[Description]'></td>
                                     <td><input type='submit' name='action' value='Update'></td>
                                     <td><input type='submit' name='action' value='Commission'></td>
+                                    <td><input type='submit' name='action' value='Delete'></td>
                                 </tr>
                                 <input type='hidden' name='machineID' value='$row[MachineID]'>
                             </form>");

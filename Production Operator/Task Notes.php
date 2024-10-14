@@ -13,7 +13,7 @@
     <header>
         <?php include_once '../inc/header.inc.php';?>
         <h1>Task Notes</h1>
-        <div id="user-role">Role:</div>
+        <div id="user-role"><?php DisplayInformation(); ?></div>
     </header>
     <main id="task-note-main">
         <ul>
@@ -25,7 +25,7 @@
             </li>
             <li>
                 <div id="task-note-recent-table">
-                Recent
+                <b>Recent</b>
                 <table id="recent-notes-table">
                     <tr>
                         <th>Note ID</th>
@@ -35,39 +35,48 @@
                         <th></th>
                     </tr>
                     <?php
-                    require_once "../inc/dbconn.inc.php";
+                    require "../inc/dbconn.inc.php";
 
                     $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR ', ') AS AssignedFactoryManagers
                             FROM Notes
                             LEFT JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
                             LEFT JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
-                            WHERE Completed = 0 AND " . $_SESSION['employeeID'] ." = ProductionOperatorID
+                            WHERE Completed = 0 AND ? = ProductionOperatorID
                             GROUP BY Notes.NoteID DESC;";
 
-                    if($result = mysqli_query($conn, $sql)) {
-                        if (1 <= mysqli_num_rows($result)) {
-                            if(5 <= mysqli_num_rows($result)) {
-                                for($i = 0; $i < 5; $i++) {
-                                    $row = mysqli_fetch_assoc($result);
-                                    echo("<tr>
-                                            <td>$row[NoteID]</td>
-                                            <td>$row[Subject]</td>
-                                            <td>$row[AssignedFactoryManagers]</td>
-                                            <td>$row[TimeObserved]</td>
-                                            <td><a href='Edit Task Notes.php?noteid=$row[NoteID]'>Edit</a></td>
-                                    </tr>");
-                                }
+                    $statement = mysqli_prepare($conn, $sql);
+                    mysqli_stmt_bind_param($statement, 'i', $_SESSION['employeeID']);
+
+                    if(!mysqli_stmt_execute($statement)) {
+                        echo(mysqli_error($conn));
+                        exit;
+                    }
+                    $result = mysqli_stmt_get_result($statement);
+
+                    if (1 <= mysqli_num_rows($result)) {
+                        if(5 <= mysqli_num_rows($result)) {
+                            for($i = 0; $i < 5; $i++) {
+                                $row = mysqli_fetch_assoc($result);
+                                echo("<form method='post' action='Edit Task Notes.php'><tr>
+                                        <td>$row[NoteID]</td>
+                                        <td>$row[Subject]</td>
+                                        <td>$row[AssignedFactoryManagers]</td>
+                                        <td>$row[TimeObserved]</td>
+                                        <td><input type='submit' value='Edit'></td>
+                                        <input type='hidden' name='noteID' value='$row[NoteID]'>
+                                </tr></form>");
                             }
-                            else {
-                                while($row = mysqli_fetch_assoc($result)) {
-                                    echo("<tr>
-                                            <td>$row[NoteID]</td>
-                                            <td>$row[Subject]</td>
-                                            <td>$row[AssignedFactoryManagers]</td>
-                                            <td>$row[TimeObserved]</td>
-                                            <td><a href='Edit Task Notes.php?noteid=$row[NoteID]'>Edit</a></td>
-                                        </tr>");
-                                }
+                        }
+                        else {
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo("<form method='post' action='Edit Task Notes.php'><tr>
+                                        <td>$row[NoteID]</td>
+                                        <td>$row[Subject]</td>
+                                        <td>$row[AssignedFactoryManagers]</td>
+                                        <td>$row[TimeObserved]</td>
+                                        <td><input type='submit' value='Edit'></td>
+                                        <input type='hidden' name='noteID' value='$row[NoteID]'>
+                                </tr></form>");
                             }
                         }
                     }

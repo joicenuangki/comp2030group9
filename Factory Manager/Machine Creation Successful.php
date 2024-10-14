@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <?php require_once "../inc/loggedin.inc.php"; 
-    ProductionOperatorCheck();?>
+    FactoryManagerCheck();?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/Style.css">
     <link rel="stylesheet" href="../Styles/Production Operator.css">
-    <title>Note Deletion Successful</title>
+    <title>Machine Creation Successful</title>
 </head>
 <body id="success-body">
     <header>
         <?php require_once "../inc/header.inc.php"; ?>
-        <h1>Deleted Successfully!</h1>
+        <h1>Machine Created Successfully!</h1>
     </header>
     <main>
         <img 
@@ -20,7 +20,7 @@
             alt="Ribbon"
             class="floating-image"
          /><br>
-        <a href="Task Notes.php"><button>Return to Notes Overview</button></a><br>
+        <a href="Machines.php"><button>Return to Machines Overview</button></a><br>
         <a href="../main"><button>Return to Home Page</button></a>
 
     </main>

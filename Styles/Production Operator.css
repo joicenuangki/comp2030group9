@@ -19,25 +19,29 @@
     }
 
     table {
+        width: 100%;
         border-collapse:collapse;
-        tr {
-            background-color: #aaaaaa;
-        }
     
         td {
             border: black 2px solid;
             padding: 5px;
+            background-color: #e9e9e9;
         }
     
         th {
             padding: 5px;
-            background-color: #5a5a5a;
+            background-color: #9293c0;
             border: black 2px solid;
         }
-    
-        a {
-            text-decoration: none;
-            color: blue;
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding-top: 50%;
+            padding-bottom: 50%;
+            display: block;
+            box-sizing: border-box;
+
         }
     }
 }
@@ -59,36 +63,42 @@
         }
     }
 
-    #task-notes-back {
-        display: inline;
-        margin-left: 50%;
+    ul {
         margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+
         button {
             padding: 10px;
         }
     }
+
+    
     
     table {
         width: 100%;
         border-collapse:collapse;
-        tr {
-            background-color: #aaaaaa;
-        }
     
         td {
             border: black 2px solid;
             padding: 5px;
+            background-color: #e9e9e9;
         }
     
         th {
             padding: 5px;
-            background-color: #5a5a5a;
+            background-color: #9293c0;
             border: black 2px solid;
         }
-    
-        a {
-            text-decoration: none;
-            color: blue;
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding-top: 50%;
+            padding-bottom: 50%;
+            display: block;
+            box-sizing: border-box;
+
         }
     }
 }
@@ -104,8 +114,22 @@ ul {
 #note-form-list{
     display: flex;
     justify-content: space-between;
+
+    input {
+        padding: 5px;
+    }
     
     ul{
         margin-right: 100px;
+
+        li {
+            padding-bottom: 10px;
+        }
     }
+}
+
+
+
+#subject-field {
+    width: 300px;
 }

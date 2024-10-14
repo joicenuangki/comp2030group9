@@ -2,14 +2,19 @@
 
 require_once "../inc/loggedin.inc.php";
 ProductionOperatorCheck();
-require_once "../inc/dbconn.inc.php";
+require "../inc/dbconn.inc.php";
 
 
+if (!isset($_POST['noteID']) || !isset($_POST['subject']) || !isset($_POST['note']) || !isset($_POST['datetime']) || !isset($_POST['task'])) {
+    header("Location: ./Task Notes.php");
+    exit;
+}
 $id = $_SESSION['employeeID'];
-$NoteID = $_POST['noteID'];
+$noteID = $_POST['noteID'];
 $subject = $_POST['subject'];
 $note = $_POST['note'];
 $datetime = $_POST['datetime'];
+
 if($_POST['task'] != '') {
     $task = $_POST['task'];
 }
@@ -19,23 +24,23 @@ else {
 
 $sql = "SELECT ProductionOperatorID FROM Notes WHERE NoteID = ?";
 
-    $statement = mysqli_prepare($conn, $sql);
+$statement = mysqli_prepare($conn, $sql);
 
-    mysqli_stmt_bind_param($statement, "i", $NoteID);
-    if(!mysqli_stmt_execute($statement)) {
-        echo(mysqli_error($conn));
-        exit;
-    }
+mysqli_stmt_bind_param($statement, "i", $noteID);
+if(!mysqli_stmt_execute($statement)) {
+    echo(mysqli_error($conn));
+    exit;
+}
 
-    $result = mysqli_stmt_get_result($statement);
-    $row = mysqli_fetch_assoc($result);
+$result = mysqli_stmt_get_result($statement);
+$row = mysqli_fetch_assoc($result);
 
-    mysqli_stmt_close($statement);
+mysqli_stmt_close($statement);
 
-    if($row['ProductionOperatorID'] != $id) {
-        header("Location: ./Task Notes.php");
-        exit;
-    }
+if($row['ProductionOperatorID'] != $id) {
+    header("Location: ./Task Notes.php");
+    exit;
+}
 
 if($_POST['action'] == 'Update') {
 
@@ -62,20 +67,18 @@ if($_POST['action'] == 'Update') {
         $count++;
     }
 
-    if($datetime != '') 
-    {
+    if($datetime != '') {
         $sql = "UPDATE Notes 
                 SET Subject = ?, NoteContence = ?, JobID = ?, TimeObserved = ?
-                WHERE NoteID = $NoteID;";
+                WHERE NoteID = $noteID;";
                 
         $statement = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($statement, 'ssis', $subject, $note, $task, $datetime);
     }
-    else
-    {
+    else {
         $sql = "UPDATE Notes 
                 SET Subject = ?, NoteContence = ?, JobID = ?
-                WHERE NoteID = $NoteID;";
+                WHERE NoteID = $noteID;";
 
         $statement = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($statement, 'ssi', $subject, $note, $task);
@@ -91,36 +94,38 @@ if($_POST['action'] == 'Update') {
         $sql = "DELETE FROM `Assigned to Notes` WHERE FactoryManagerID = ? AND NoteID = ?;";
         
         $statement = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($statement, 'ii', $managerID, $NoteID);
+        mysqli_stmt_bind_param($statement, 'ii', $managerID, $noteID);
 
         if(!mysqli_stmt_execute($statement)) {
             echo(mysqli_error($conn));
             exit;
         }
+        mysqli_stmt_close($statement);
     }
 
     foreach($unassignedManagers as $managerID) {
         $sql = "INSERT INTO `Assigned to Notes` (FactoryManagerID, NoteID) VALUES(?, ?);";
         
         $statement = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($statement, 'ii', $managerID, $NoteID);
+        mysqli_stmt_bind_param($statement, 'ii', $managerID, $noteID);
 
         if(!mysqli_stmt_execute($statement)) {
             echo(mysqli_error($conn));
             exit;
         }
+        mysqli_stmt_close($statement);
     }
 
     mysqli_close($conn);
 
-    header("Location: Task Notes.php");
+    header("Location: Note Update Successful.php");
 }
 elseif($_POST['action'] == 'Delete') {
 
     $sql = "UPDATE Notes SET Completed = 1  WHERE NoteID = ?;";
 
     $statement = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($statement, 'i', $NoteID);
+    mysqli_stmt_bind_param($statement, 'i', $noteID);
 
     if(!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));
@@ -132,7 +137,7 @@ elseif($_POST['action'] == 'Delete') {
     $sql = "DELETE FROM `Assigned to Notes` WHERE NoteID = ?";
 
     $statement = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($statement, "i", $NoteID);
+    mysqli_stmt_bind_param($statement, "i", $noteID);
     if(!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));
         exit;
@@ -144,5 +149,6 @@ elseif($_POST['action'] == 'Delete') {
     header("Location: ../Production Operator/Note Deletion Successful.php");
 }
 else {
+    mysqli_close($conn);
     header("Location: ./Task Notes.php");
 }

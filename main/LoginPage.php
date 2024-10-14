@@ -30,9 +30,9 @@
         <h2>Sign In to Start</h2>
         <form action="../main/Login.php" method="post">
         <ul>
-            <li><label for='employeeID-field'>EmployeeID: </label> <input type="text" name="employeeID" id="employeeID-field" placeholder="Type Employee ID Here" required></li>
+            <li><label for='employeeID-field'>EmployeeID: </label> <input type="text" name="employeeID" id="employeeID-field" placeholder="Type Employee ID Here" required autocomplete="off"></li>
             <br>
-            <li><label for="password-field">Password: </label> <input type="password" name="password" id="password-field" placeholder="Type Password Here" required></li>
+            <li><label for="password-field">Password: </label> <input type="password" name="password" id="password-field" placeholder="Type Password Here" required autocomplete="off"></li>
         </ul>
         <input type="submit" value="Sign In">
         </form>

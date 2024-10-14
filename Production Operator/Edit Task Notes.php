@@ -4,10 +4,10 @@
     <?php 
     require_once '../inc/loggedin.inc.php';
     ProductionOperatorCheck();
-    require_once '../inc/dbconn.inc.php';
+    require '../inc/dbconn.inc.php';
 
-    if(isset($_GET['noteid'])) {
-        $NoteID = $_GET['noteid'];
+    if(isset($_POST['noteID'])) {
+        $NoteID = $_POST['noteID'];
 
         $sql = "SELECT ProductionOperatorID, Subject, NoteContence, JobID, TimeObserved FROM Notes WHERE NoteID = ?;";
         
@@ -22,7 +22,7 @@
         $info = mysqli_fetch_assoc($result);
 
         if($info['ProductionOperatorID'] != $_SESSION['employeeID']) {
-            header("Location: ../Production Operator/Task Notes.php");
+            header("Location: ./Task Notes.php");
             exit;
         }
         mysqli_stmt_close($statement);
@@ -42,15 +42,15 @@
     <header>
         <?php include_once '../inc/header.inc.php';?>
         <h1>Edit Task Note</h1>
-        <div id="user-role">Role:</div>
+        <div id="user-role"><?php DisplayInformation(); ?></div>
     </header>
     <main>
         <form action='./Note Modification.php' method='post'>
             <b>Note ID: <?php echo($NoteID);?></b>
             <ul id='note-form-list'>
                 <li><ul>
-                    <li><label for='subject-field'>Subject</label> <input id='subject-field' type='text' name='subject' <?php echo("value='$info[Subject]'");?> required></li>
-                    <li><label for='note-field'>Note</label> <textarea id='note-field' name='note' required><?php echo("$info[NoteContence]");?></textarea></li>
+                    <li><label for='subject-field'>Subject</label> <input id='subject-field' type='text' name='subject' <?php echo("value='$info[Subject]'");?> required autocomplete='off' maxlength='50'></li>
+                    <li><label for='note-field'>Note</label> <textarea id='note-field' name='note' required autocomplete='off' maxlength='1000' rows="5" cols="100"><?php echo("$info[NoteContence]"); ?></textarea></li>
                     <li><label for='active-task-field'>Active Task</label> <select id='active-task-field' name='task'>
 
                     <option value=''>&lt;No Task&gt;</option>"
@@ -81,7 +81,7 @@
                     mysqli_stmt_close($statement);
                     ?>
                     </select></li> 
-                    <li><label for='datetime-observed-field'>Date & Time Observed</label> <input id='datetime-observed-field' type='datetime-local' step='1' name='datetime' value='$info[TimeObserved]'> If left blank will not update time</li>
+                    <li><label for='datetime-observed-field'>Date & Time Observed</label> <input id='datetime-observed-field' type='datetime-local' step='1' name='datetime' value='<?php echo("$info[TimeObserved]"); ?>'> If left blank will not update time</li>
                 </ul></li>
 
             <li><ul>

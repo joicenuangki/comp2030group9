@@ -44,7 +44,24 @@ main {
     margin-right: 10px;
 }
     
+button {
+    font-family: 'Times New Roman', Times, serif;
+}
+input {
+    font-family: 'Times New Roman', Times, serif;
+}
 
+}
 
+#success-body {
+    text-align: center;
+    align-items: center;
+    
+    button {
+        font-weight: bold;
+        margin: 20px;
+        padding: 4%;
+        font-size: 32px;
+    }
 }
 

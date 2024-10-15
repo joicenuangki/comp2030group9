@@ -18,7 +18,7 @@
     <main id="view-task-note-main">
         <ul id="view-notes-menu">
             <li><form method="post">
-                <input type="text" placeholder="Search" id="search-bar" name="search" value="<?php echo(isset($_POST['search']) ? $_POST['search'] : ''); ?>" autocomplete="off">
+                <input type="text" placeholder="Search" id="search-bar" name="search" value="<?php echo(isset($_POST['search']) ? $_POST['search'] : ''); ?>" autocomplete="off" autofocus>
                 <input type="submit" value="Search">
             </form></li>
             <li><a href="Task Notes.php" id="task-notes-back"><button>Back to Task Notes</button></a></li>

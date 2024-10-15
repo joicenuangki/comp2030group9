@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php require_once "../inc/loggedin.inc.php"; 
-    FactoryManagerCheck();?>
+    FactoryManagerCheck(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
@@ -22,7 +22,7 @@
             echo("<div id='machine-name-error-message'><b>A machine with that name already exists</b></div>");
         }
         ?>
-        <form action='' method='post'>
+        <form action='' method='post' id="add-machines-form">
             <ul>
                 <li><label for='machine-name-field'>Machine Name</label><input type='text' id="machine-name-field" required autocomplete="off" maxlength="50" name="name"></li>
                 <li><label for='machine-description-field'>Machine Description</label><textarea id='machine-description-field' autocomplete="off" maxlength="500" name="description"></textarea></li>

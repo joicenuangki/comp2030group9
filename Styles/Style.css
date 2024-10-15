@@ -65,3 +65,21 @@ input {
     }
 }
 
+#login-body {
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+
+    ul {
+        padding: 0px;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    #login-error-p {
+        color: rgb(214, 31, 31);
+    }
+}
+

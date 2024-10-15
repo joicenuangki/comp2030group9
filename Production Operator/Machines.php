@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php require_once "../inc/loggedin.inc.php"; 
-    FactoryManagerCheck();?>
+    <?php require_once "../inc/loggedin.inc.php"; 
+    ProductionOperatorCheck(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factory Manager.css">
-    <title>View Machines</title>
+    <link rel="stylesheet" href="../Styles/Production Operator.css">
+    <title>Machines Overview</title>
 </head>
 <body>
     <header>
         <?php include_once '../inc/header.inc.php';?>
-        <h1>View Machines</h1>
+        <h1>Machines Overview</h1>
         <div id="user-role"><?php DisplayInformation();?></div>
     </header>
     <main>
-        <b>WARNING:</b> Deleting Machines Also Deletes <b>ALL LOGS</b> Relating to it<br>
-        <a href="./Machines.php"><button>Back to Machine Overview</button></a>
-        <table id="view-machines-table">
+        <ul id="machines-ul">
+            <li><form method="post">
+                <input type="text" placeholder="Search" id="search-bar" name="search" value="<?php echo(isset($_POST['search']) ? $_POST['search'] : ''); ?>" autocomplete="off" autofocus>
+                <input type="submit" value="Search">
+            </form></li>
+        </ul><br>
+        
+        <table id="machines-table">
             <th>Machine ID</th>
             <th>Machine Name</th>
             <th>Machine Description</th>
-            <th></th>
-            <th></th>
-            <th></th>
 
             <?php require '../inc/dbconn.inc.php';
 
-            $sql = "SELECT MachineID, MachineName, Description, Decommissioned FROM Machines";
+            if(isset($_POST['search'])) {
+                $search = "%{$_POST['search']}%";
+            }
+            else {
+                $search = "%";
+            }
+
+            $sql = "SELECT MachineID, MachineName, Description, Decommissioned FROM Machines 
+                    WHERE MachineID LIKE ? OR MachineName LIKE ? OR Description LIKE ?
+                    GROUP BY MachineID;";
 
             $statement = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($statement, 'sss', $search, $search, $search);
             if(!mysqli_stmt_execute($statement)) {
                 echo(mysqli_error($conn));
                 exit;
@@ -46,10 +58,8 @@
                                 <tr class='commissioned'>
                                     <td>$row[MachineID]</td>
                                     <td>$row[MachineName]</td>
-                                    <td><input type='text' name='description' value='$row[Description]'></td>
+                                    <td><textarea name='description' autocomplete='off' rows='4' cols='20'>$row[Description]</textarea></td>
                                     <td><input type='submit' name='action' value='Update'></td>
-                                    <td><input type='submit' name='action' value='Decommission'></td>
-                                    <td><input type='submit' name='action' value='Delete'></td>
                                 </tr>
                                 <input type='hidden' name='machineID' value='$row[MachineID]'>
                             </form>");
@@ -60,10 +70,8 @@
                                 <tr class='decommissioned'>
                                     <td>$row[MachineID]</td>
                                     <td>$row[MachineName]</td>
-                                    <td><input type='text' name='description' value='$row[Description]'></td>
+                                    <td><textarea name='description' autocomplete='off' rows='4' cols='20'>$row[Description]</textarea></td>
                                     <td><input type='submit' name='action' value='Update'></td>
-                                    <td><input type='submit' name='action' value='Commission'></td>
-                                    <td><input type='submit' name='action' value='Delete'></td>
                                 </tr>
                                 <input type='hidden' name='machineID' value='$row[MachineID]'>
                             </form>");

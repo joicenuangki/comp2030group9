@@ -23,7 +23,8 @@ if(isset($_POST['action']) && isset($_POST['machineID'])) {
             $sql = "DELETE FROM Machines WHERE MachineID = ?;";
         }
         else {
-            header("Location: ./Machines.php");
+            mysqli_close($conn);
+            header("Location: Machines.php");
             exit;
         }
         $statement = mysqli_prepare($conn, $sql);
@@ -31,7 +32,8 @@ if(isset($_POST['action']) && isset($_POST['machineID'])) {
     }
 }
 else {
-    header("Location: ./Machines.php");
+    mysqli_close($conn);
+    header("Location: Machines.php");
     exit;
 }
 
@@ -43,5 +45,5 @@ if(!mysqli_stmt_execute($statement)) {
 mysqli_stmt_close($statement);
 mysqli_close($conn);
 
-header("Location: View Machines.php");
+header("Location: Machines.php");
 exit;

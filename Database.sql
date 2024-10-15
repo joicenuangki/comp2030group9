@@ -77,7 +77,7 @@ CREATE TABLE `Factory Logs` (
   `vibration` FLOAT,
   `humidity` FLOAT,
   `power_consumption` FLOAT,
-  `operation_status` TINYINT(1),
+  `operational_status` ENUM('active', 'idle', 'maintenance'),
   `error_code` CHAR(4),
   `production_count` INT,
   `maintenance_log` VARCHAR(50),
@@ -86,6 +86,7 @@ CREATE TABLE `Factory Logs` (
   FOREIGN KEY (machine_name) REFERENCES Machines(MachineName) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+FLUSH PRIVILEGES;
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON webdev_db.`Employees` TO dbadmin@localhost;
 GRANT all privileges ON webdev_db.`Machines` TO dbadmin@localhost;

@@ -1,4 +1,7 @@
 <?php
+require_once "../inc/loggedin.inc.php";
+FactoryManagerCheck();
+
 if(isset($_POST['name'])) {
         require "../inc/dbconn.inc.php";
         $sql = "SELECT MachineName FROM Machines WHERE MachineName = ?";

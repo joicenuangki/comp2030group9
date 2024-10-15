@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "../inc/dbconn.inc.php";
+require "../inc/dbconn.inc.php";
 
 if(isset($_POST['employeeID']) && isset($_POST['password'])) {
     $empID = $_POST['employeeID'];
@@ -16,12 +16,6 @@ if(isset($_POST['employeeID']) && isset($_POST['password'])) {
         $_SESSION['role'] = $row['Role'];
 
         header("Location: ../main");
-    }
-    else {
-        header("Location: ../main/LoginPage.php");
-    }
-        
-}
-else {
-    header("Location: ../main/LoginPage.php");
+        exit;
+    }   
 }

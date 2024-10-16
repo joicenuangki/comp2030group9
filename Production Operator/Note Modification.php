@@ -1,3 +1,5 @@
+<meta name="author" content="Nathan" />
+
 <?php
 
 require_once "../inc/loggedin.inc.php";

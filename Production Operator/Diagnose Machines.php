@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <?php require_once "../inc/loggedin.inc.php";
-    FactoryManagerCheck();?>
+    ProductionOperatorCheck();?>
     <meta charset="UTF-8">
+    <meta name="author" content="Nathan" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factory Manager.css">
+    <link rel="stylesheet" href="../Styles/Production Operator.css">
     <title>Diagnose Machines</title>
 </head>
 <body>

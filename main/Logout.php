@@ -1,3 +1,5 @@
+<meta name="author" content="Nathan" />
+
 <?php
 session_start();
 

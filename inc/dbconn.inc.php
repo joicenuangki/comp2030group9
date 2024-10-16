@@ -1,3 +1,5 @@
+<meta name="author" content="Nathan" />
+
 <?php
 
 if (!defined('DB_HOST')) {

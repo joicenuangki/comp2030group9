@@ -1,0 +1,68 @@
+
+
+#manage-employees-main {
+    ul {
+        list-style: none;
+        display: inline-block;
+        justify-content: space-between;
+    }
+
+    #employee-management-form, #manage-employees-table {
+        width: 100%;
+    }
+
+    
+
+    #employee-management-form {
+        ul {
+            list-style: none;
+            display: block;
+
+            input {
+                padding: 2%;
+                width: 10%;
+
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    #manage-employees-table {
+        width: 50%;
+        border-collapse: collapse;
+        font-size: 32px;
+        
+        td {
+            border: 1px black solid;
+        }
+        th {
+            border: 1px black solid;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            padding-top: 10px;
+            padding-bottom: 10%;
+            display: block;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.administrator {
+    background-color: rgb(120, 197, 150); 
+}
+
+.auditor {
+    background-color: rgb(126, 157, 189); 
+}
+
+.factory-manager {
+    background-color: rgb(214, 108, 117); 
+}
+
+.production-operator {
+    background-color: rgb(255, 237, 133); 
+}

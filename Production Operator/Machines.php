@@ -4,6 +4,7 @@
     <?php require_once "../inc/loggedin.inc.php"; 
     ProductionOperatorCheck(); ?>
     <meta charset="UTF-8">
+    <meta name="author" content="Nathan" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
     <link rel="stylesheet" href="../Styles/Production Operator.css">
@@ -21,6 +22,7 @@
                 <input type="text" placeholder="Search" id="search-bar" name="search" value="<?php echo(isset($_POST['search']) ? $_POST['search'] : ''); ?>" autocomplete="off" autofocus>
                 <input type="submit" value="Search">
             </form></li>
+            <li><a href="Diagnose Machines.php"><button>Diagnose Machines</button></a></li>
         </ul><br>
         
         <table id="machines-table">

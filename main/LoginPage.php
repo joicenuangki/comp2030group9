@@ -4,7 +4,7 @@
     <?php require_once "Login.php"; ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Joice" />
+    <meta name="author" content="Joice & Nathan" />
     <link rel="stylesheet" href="../Styles/Style.css">
     <title>Login</title>
 </head>

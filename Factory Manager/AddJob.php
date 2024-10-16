@@ -28,6 +28,10 @@ $conn->close();
 
 <!DOCTYPE html>
     <html lang="en">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Factory Manager.css">
+    <link rel="stylesheet" href="factorymanager2.css">
+    
 
     <head>
 

@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs Overview</title> 
-    <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factory Manager.css">
-    <link rel="stylesheet" href="factorymanager2.css">
+    <title>Jobs Overview</title>
+    <link rel="stylesheet" href="styles.css">
+
     
 
     <?php require "../inc/dbconn.inc.php";
@@ -18,16 +16,16 @@
 <body>
     <header>
     <?php include_once '../inc/header.inc.php';?>
-        <h1>Jobs Overview</h1>
+        
         <div id="user-role"><?php DisplayInformation(); ?></div>
      </header>
 
     <main id="JobsOverview"> 
-        
-        <h2>Current Jobs:</h2>
+        <h1>Jobs History</h1>
+        <h2>Completed Jobs:</h2>
 
         <table class="table">
-            <thead class="">
+            <thead>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Machine</th>
@@ -42,7 +40,7 @@
                     
 
 
-                    $result = $conn->query ("SELECT * FROM Jobs WHERE Completed = 0");
+                    $result = $conn->query ("SELECT * FROM Jobs WHERE Completed = 1");
 
 
                     
@@ -96,14 +94,7 @@
                         <td>". $row["Priority"] . "</td>
                         <td>". $row["AssignedDate"] . "</td>
                         <td>".  $allManagersAssigned . "</td>
-                        <td>
-                            <form method='POST' action='edit-job.php'>
-                            <input type='hidden' name='JobID' id='JobID' value='" . $row['JobID'] . "'>
-                            <input type='submit' name='action' value='Edit Or Delete'>
-                            </form>
-                                
-                            
-                        </td>
+
                 
                         </tr>";
                     }
@@ -112,9 +103,7 @@
 
         </table>
        
-        <a href="AddJob.php"><button class="jobsOverview-btn" id="AddJobs-btn">Add Jobs</button></a>
-        <a href="JobHistory.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
-        <a href="assign-roles.php"><button class="jobsOverview-btn" id="addrole-btn">Roles</button></a>
+        
     
     </main>
 

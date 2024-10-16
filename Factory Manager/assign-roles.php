@@ -1,5 +1,5 @@
 
-<?php include_once '../inc/header.inc.php';
+<?php 
     require_once "../inc/loggedin.inc.php"; 
     FactoryManagerCheck(); 
     require "../inc/dbconn.inc.php";
@@ -32,8 +32,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jobs Overview</title>
-        <link rel="stylesheet" href="styles.css">
+        <title>Job Roles</title>
+        <link rel="stylesheet" href="../Styles/Style.css">
+        <link rel="stylesheet" href="../Styles/Factory Manager.css">
+        <link rel="stylesheet" href="factorymanager2.css">
+        <title>Roles</title> 
+        <?php include_once '../inc/header.inc.php';?>
     </head>
 
 
@@ -77,7 +81,7 @@ while($row = $employees->fetch_assoc()) {
     echo "      
             </td>
             
-            <td><input type='submit' name='action' value='Change'></td>
+            <td><input class='change-btn' type='submit' name='action' value='Change'></td>
             <input type='hidden' name='EmployeeID' id='EmployeeID' value='" . $row['EmployeeID'] . "'>
         </tr>
         </form>";

@@ -43,7 +43,7 @@ $conn->close();
     <html lang="en">
 
     <head>
-
+    <link rel="stylesheet" href="../Styles/Style.css">
     </head>
 
     <body>

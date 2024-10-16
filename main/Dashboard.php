@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php //require_once "../inc/loggedin.inc.php"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Ben" />
+    <meta name="author" content="Ben Ellis" />
     <link rel="stylesheet" href="../Styles/Style.css">
     <title>Dashboard</title>
 
@@ -19,17 +20,73 @@
         <h1>Dashboard</h1>
     </header>
     
-    <?php
-        //fetch logs from logs
+    <form method="POST" id="dataForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        
+        <label for="machine">Machine:</label>
+        <select name="machine" id="machine">
+        <?php
         require_once "../inc/dbconn.inc.php";
 
-        $sql = "SELECT timestamp, speed FROM `Factory Logs` ORDER BY timestamp ASC";
+            // get options
+            $sql = "SELECT MachineName FROM Machines";
+            $result = $conn->query($sql);
 
-        $sql = "SELECT `timestamp`, production_count 
+            // Output options
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<option value="' . $row['MachineName'] . '">' . $row['MachineName'] . '</option>';
+                }
+            } else {
+                echo '<option>No options available</option>';
+            }
+            ?>
+        </select>
+        <label for="metric">Metric:</label>
+        <select name="metric" id="metric">
+        <?php
+        // get options
+            $sql = "SHOW COLUMNS FROM `Factory Logs`";
+            $result = $conn->query($sql);
+
+            //exlude name and timestamp
+            $exclude_columns = ['timestamp', 'machine_name', 'operation_status', 'maintenance_log', 'error_code'];
+
+            // Output options
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    if (!in_array($row['Field'], $exclude_columns)) {
+                       echo '<option value="' . $row['Field'] . '">' . $row['Field'] . '</option>';
+                    }
+                }
+            } else {
+                echo '<option>No options available</option>';
+            }
+            ?>
+        </select>
+        <input type="submit" name="submit" value="Fetch Data">
+        <br></br>
+    </form>
+
+    <?php
+    if (isset($_POST['date']) && isset($_POST['machine']) && isset($_POST['metric'])) {
+        $day = $_POST['date'];
+        //convert day to timestamps
+        $startOfDay = strtotime($day . ' 00:00:00');
+        $endOfDay = strtotime($day . ' 23:30:00');
+        //format timestamps
+        $startOfDay = date('Y-m-d H:i', $startOfDay);
+        $endOfDay = date('Y-m-d H:i', $endOfDay);
+        $machine = $_POST['machine'];
+        $metric = $_POST['metric']; 
+        
+
+        //fetch logs from logs
+        $sql = "SELECT `timestamp`, $metric
         FROM `Factory Logs`
-        WHERE machine_name = 'CNC Machine' 
+        WHERE machine_name = '$machine' and `timestamp` BETWEEN  '$startOfDay' and '$endOfDay'
         ORDER BY timestamp ASC"; 
-
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) >= 1 ) {
                 $data = [];
@@ -37,7 +94,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     $data[] = [
                         'timestamp' => $row['timestamp'],
-                        'production_count' => $row['production_count']
+                        $metric => $row[$metric]
                     ];
                     
             } 
@@ -47,6 +104,7 @@
                 echo "No records found.";
             }
         }
+    }
 ?>
 
 <canvas id="myCanvas" width="800" height="400"></canvas>
@@ -55,34 +113,35 @@
     <?php 
         if (isset($jsonData)) {
             echo "const data = $jsonData;";
+            echo "const metricName = JSON.parse('". json_encode($metric), "');";
         } else {
             echo "const data = [];";
+            echo "const metricName = '';";
         }
     ?>
 
     if (data.length === 0) {
-        alert("No data available to display.");
+        //alert("No data available to display.");
     } else {
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
 
         // Prepare data for plotting
         const timestamps = data.map(entry => new Date(entry.timestamp).toLocaleTimeString());
-        const counts = data.map(entry => entry.production_count);
-
+        const metric = data.map(entry => entry[metricName]);
+        
         // Graph dimensions
         const graphHeight = 300;
         const graphWidth = 700;
         const startX = 50;  // Starting X position for the graph
         const startY = 350; // Starting Y position for the graph
-        const maxY = Math.max(...counts) * 1.1; // A little padding for Y-axis
+        const maxY = Math.max(...metric) * 1.1; // A little padding for Y-axis
 
-        // Function to draw the graph
         function drawGraph() {
             // Clear the canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Draw axes
+            // Draw the axes
             ctx.beginPath();
             ctx.moveTo(startX, startY); // X-axis
             ctx.lineTo(startX + graphWidth, startY);
@@ -92,7 +151,7 @@
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            // Y-axis labels (counts values)
+            // Y-axis labels
             ctx.font = '12px Arial';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'black';
@@ -106,9 +165,9 @@
                 ctx.stroke();
             }
 
-            // X-axis labels (timestamps)
+            // X-axis
             ctx.textAlign = 'center';
-            const skipLabels = Math.ceil(timestamps.length / 10); // Only show every 10th timestamp (adjust this value as needed)
+            const skipLabels = Math.ceil(timestamps.length / 15); // Only show every nth timestamp
 
             for (let i = 0; i < timestamps.length; i++) {
                 if (i % skipLabels === 0) { // Only draw every nth label
@@ -117,13 +176,12 @@
                 }
             }
 
-            // ** Draw the graph line before points **
             ctx.beginPath();
-            ctx.moveTo(startX, startY - (counts[0] * graphHeight / maxY)); // Start at the first point
+            ctx.moveTo(startX, startY - (metric[0] * graphHeight / maxY)); // Start at the first point
 
-            for (let i = 0; i < counts.length; i++) {
-                const x = startX + (i * (graphWidth / (counts.length - 1)));
-                const y = startY - (counts[i] * graphHeight / maxY); // Scale counts to fit graph height
+            for (let i = 0; i < metric.length; i++) {
+                const x = startX + (i * (graphWidth / (metric.length - 1)));
+                const y = startY - (metric[i] * graphHeight / maxY); // Scale metric to fit graph height
                 ctx.lineTo(x, y);  // Line from previous point to current point
             }
 
@@ -132,9 +190,9 @@
             ctx.stroke();              // Draw the line
 
             // Now draw data points and labels **after** drawing the line
-            for (let i = 0; i < counts.length; i++) {
-                const x = startX + (i * (graphWidth / (counts.length - 1)));
-                const y = startY - (counts[i] * graphHeight / maxY);
+            for (let i = 0; i < metric.length; i++) {
+                const x = startX + (i * (graphWidth / (metric.length - 1)));
+                const y = startY - (metric[i] * graphHeight / maxY);
 
                 // Draw data points as circles
                 ctx.beginPath();
@@ -143,13 +201,12 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // Label counts at each point
+                // Label metric at each point
                 ctx.fillStyle = 'black'; // Label color
-                ctx.fillText(counts[i], x, y - 10); // Display counts value above the point
+                ctx.fillText(metric[i], x, y - 10); // Display metric value above the point
             }
-        }
-
-        drawGraph();
+        }  
+    drawGraph();
     }
 </script>
 

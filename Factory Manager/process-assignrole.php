@@ -28,6 +28,10 @@ echo "Job and employees successfully inserted.";
     <html lang="en">
 
     <head>  
+    <html lang="en">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Factory Manager.css">
+    <link rel="stylesheet" href="factorymanager2.css">
         
         <h1>ROLE UPDATED</h1>
 

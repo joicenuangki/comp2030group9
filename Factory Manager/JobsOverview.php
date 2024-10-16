@@ -113,7 +113,7 @@
         </table>
        
         <a href="AddJob.php"><button class="jobsOverview-btn" id="AddJobs-btn">Add Jobs</button></a>
-        <a href="JobHistory.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
+        <a href="job-history.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
         <a href="assign-roles.php"><button class="jobsOverview-btn" id="addrole-btn">Roles</button></a>
     
     </main>

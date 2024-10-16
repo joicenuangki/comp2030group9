@@ -137,7 +137,7 @@ elseif ($action === 'delete') {
   
  
   $stmt->execute();
-  
+
   }
 echo "Job and employees successfully inserted.";
 ?>
@@ -146,11 +146,15 @@ echo "Job and employees successfully inserted.";
     <html lang="en">
 
     <head>  
+    <html lang="en">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Factory Manager.css">
+    <link rel="stylesheet" href="factorymanager2.css">
         
         <h1>Congratulations Job has been posted</h1>
 
         <a href="AddJob.php"><button class="jobsOverview-btn" id="AddJobs-btn">Add Another Job</button></a>
-        <a href="JobHistory.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
+        <a href="job-history.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
         <a href="JobsOverview.php"><button class="jobsOverview-btn" id="history-btn">Job Overview</button></a>
 
 

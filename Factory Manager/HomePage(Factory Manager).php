@@ -26,10 +26,13 @@
             <button type="button">Manage Machines</button>
         </a>
         <p></p>
-
-        <button>Edit Jobs</button>
+        <a href="JobsOverview.php">
+        <button>Jobs Overview</button>
+        </a>
         <p></p>
+        <a href="assign-roles.php">
         <button>Assign Roles</button>
+        </a>
         <p></p>
         <a href="View Task Notes.php">
             <button type="button">Create Task Notes</button>

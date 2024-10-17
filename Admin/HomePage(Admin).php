@@ -13,8 +13,8 @@
 <body>
     <header>
         <?php include_once '../inc/header.inc.php';?>
-        <h1>Welcome to the Smart Manufactoring Dashboard</h1>
-        <h3>Role: Administrator</h3>
+        <h1>Home Page</h1>
+        <div id="user-role"><?php DisplayInformation();?></div>
         <p></p>
     </header>
     <main>
@@ -28,7 +28,6 @@
         src="../Images/CM - Manufacturer option 1.jpg"
         alt="Ribbon"
         class="Manufactoring"
-    
         >
     </main>
     <footer>

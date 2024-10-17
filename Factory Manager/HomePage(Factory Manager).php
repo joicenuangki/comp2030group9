@@ -13,8 +13,8 @@
 <body>
     <header>
         <?php include_once '../inc/header.inc.php';?>
-        <h1>Welcome to the Smart Manufactoring Dashboard</h1>
-        <h3>Role: Factory Manager</h3>
+        <h1>Home Page</h1>
+        <div id="user-role"><?php DisplayInformation();?></div>
         <p></p>
     </header>
     <main>

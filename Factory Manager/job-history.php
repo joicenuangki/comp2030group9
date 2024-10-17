@@ -36,21 +36,11 @@
                 <th>Priority</th>
                 <th>Date</th>
                 <th>Manager Assigned</th>
-                <th>Edit Job</th>
             </thead>
             <tbody>
                 <?php
                     
-
-
                     $result = $conn->query ("SELECT * FROM Jobs WHERE Completed = 1");
-
-
-                    
-                    
-                    
-                   
-                    
 
                     while($row= $result->fetch_assoc()){
                         

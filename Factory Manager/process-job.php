@@ -4,9 +4,6 @@
     FactoryManagerCheck(); 
     require "../inc/dbconn.inc.php";
     
-?>
-
-<?php
 
     $jobDesc = $_POST["jobDesc"];
     $priority = filter_input(INPUT_POST, "priority");

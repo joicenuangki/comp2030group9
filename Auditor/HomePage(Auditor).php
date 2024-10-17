@@ -22,6 +22,8 @@
         <p></P>
         <a href="../main/Dashboard.php"><button id="add-employee">View Factory Performance</button></a>
         <p></P>
+        <a href="Machines.php"><button id="add-employee">View Machines</button></a>
+        <p></p>
         <img 
         src="../Images/CM - Manufacturer option 1.jpg"
         alt="Ribbon"

@@ -22,7 +22,7 @@
     <p></P>
     <a href="Machines.php"><button id="Update-Machines">Update Machines</button></a>
     <p></P>
-    <a href="View Jobs.php.php"><button id="Update-Jobs">Update Jobs</button></a>
+    <a href="View Jobs.php"><button id="Update-Jobs">Update Jobs</button></a>
     <p></P>
     <a href="Task Notes.php"><button id="add-employee">Manage Task Notes</button></a>
     <p></P>

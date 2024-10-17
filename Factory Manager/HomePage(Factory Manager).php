@@ -18,19 +18,14 @@
         <p></p>
     </header>
     <main>
-    <a href="Diagnose Machines.php"><button id="add-employee">Monitor Factory Performance</button></a>
+    <a href="../main/Dashboard.php"><button id="add-employee">View Factory Performance</button></a>
     <p></p>
     <a href="Machines.php"><button id="add-employee">Update Machines</button></a>
     <p></p>
     <a href="JobsOverview.php"><button id="add-employee">Update Jobs</button></a>
     <p></p>
-    <a href="JobsOverview.php"><button id="add-employee">Assign Machines?</button></a>
-    <p></p>
-    <a href="../main/Dashboard.php"><button id="add-employee">View Dashboard</button></a>
-    <p></p>
-    <a href="../main/Logout.php"><button id="add-employee">Log Out</button></a>
+    <a href="View Task Notes.php"><button id="add-employee">View Task Notes</button></a>
     <p></P>
-
         <img 
         src="../Images/CM - Manufacturer option 1.jpg"
         alt="Ribbon"

@@ -18,15 +18,13 @@
         <p></p>
     </header>
     <main>
-    <a href="Machines.php"><button id="Monitor-Factory-Performance">Monitor Factory Performance</button></a>
+    <a href="../main/Dashboard.php"><button id="Monitor-Factory-Performance">View Factory Performance</button></a>
     <p></P>
-    <a href="Machine Modification.php"><button id="Update-Machines">Update Machines</button></a>
+    <a href="Machines.php"><button id="Update-Machines">Update Machines</button></a>
     <p></P>
-    <a href="../Factory Manager/JobsOverview.php"><button id="Update-Jobs">Update Jobs</button></a>
+    <a href="View Jobs.php.php"><button id="Update-Jobs">Update Jobs</button></a>
     <p></P>
     <a href="Task Notes.php"><button id="add-employee">Manage Task Notes</button></a>
-    <p></P>
-    <a href="../main/Logout.php"><button id="add-employee">Log Out</button></a>
     <p></P>
         <img 
         src="../Images/CM - Manufacturer option 1.jpg"

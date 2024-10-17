@@ -123,7 +123,7 @@ var_dump($jobDesc, $priority);
 
 }
 elseif ($action === 'delete') {
-    echo "Job ID to be deleted: " . $jobID . "<br>"; // Add this line for debugging
+    //echo "Job ID to be deleted: " . $jobID . "<br>"; // Add this line for debugging
   
     $deleteAssignmentsQuery = "DELETE FROM `Assigned to Jobs` WHERE JobID = ?";
     $stmt = $conn->prepare($deleteAssignmentsQuery);
@@ -139,31 +139,9 @@ elseif ($action === 'delete') {
   $stmt->execute();
 
   }
-echo "Job and employees successfully inserted.";
+//echo "Job and employees successfully inserted.";
+header("Location: Job-Edited.php");
 ?>
 
-<!DOCTYPE html>
-    <html lang="en">
 
-    <head>  
-    <html lang="en">
-    <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factory Manager.css">
-    <link rel="stylesheet" href="factorymanager2.css">
-        
-        <h1>Congratulations Job has been posted</h1>
-
-        <a href="AddJob.php"><button class="jobsOverview-btn" id="AddJobs-btn">Add Another Job</button></a>
-        <a href="job-history.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
-        <a href="JobsOverview.php"><button class="jobsOverview-btn" id="history-btn">Job Overview</button></a>
-
-
-
-    </head>
-
-    <body>
-
-
-    </body>
-    </html>
 

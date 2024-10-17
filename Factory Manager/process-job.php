@@ -43,11 +43,11 @@ $employeeFields = array_filter(array_keys($_POST), function($key) {
 
 if (empty($employeeFields)) {
     
-    echo "NO EMPLOYEE FIELDS FOUND IN FORM SUBMISSION<br>";
+    //echo "NO EMPLOYEE FIELDS FOUND IN FORM SUBMISSION<br>";
 } else {
     foreach ($employeeFields as $field) {
         $employeeID = $_POST[$field];
-        echo "PROCESSING FIELD: " . $field . " WITH VALUE: " . $employeeID . "<br>";
+        //echo "PROCESSING FIELD: " . $field . " WITH VALUE: " . $employeeID . "<br>";
         
         if (!empty($employeeID) && $employeeID !== "Select an employee") {
             $jobworkers_sql = "INSERT INTO `assigned to jobs` (JobID, ProductionOperatorID) VALUES (?, ?)";
@@ -57,17 +57,17 @@ if (empty($employeeFields)) {
                 mysqli_stmt_bind_param($jobworkers_stmt, "ii", $job_id, $employeeID);
                 
                 if (mysqli_stmt_execute($jobworkers_stmt)) {
-                    echo "EMPLOYEE " . $employeeID . " ASSIGNED TO JOB " . $job_id . "<br>";
+                    //echo "EMPLOYEE " . $employeeID . " ASSIGNED TO JOB " . $job_id . "<br>";
                 } else {
-                    echo "ERROR ASSIGNING EMPLOYEE " . $employeeID . ": " . mysqli_stmt_error($jobworkers_stmt) . "<br>";
+                    //echo "ERROR ASSIGNING EMPLOYEE " . $employeeID . ": " . mysqli_stmt_error($jobworkers_stmt) . "<br>";
                 }
                 
                 mysqli_stmt_close($jobworkers_stmt);
             } else {
-                echo "ERROR PREPARING STATEMENT: " . mysqli_error($conn) . "<br>";
+                //echo "ERROR PREPARING STATEMENT: " . mysqli_error($conn) . "<br>";
             }
         } else {
-            echo "EMPLOYEE FIELD " . $field . " IS EMPTY OR NOT SELECTED<br>";
+            //echo "EMPLOYEE FIELD " . $field . " IS EMPTY OR NOT SELECTED<br>";
             break;
         }
     }
@@ -144,30 +144,5 @@ mysqli_close($conn);
 
 
 //ADD CHECK OF YES OR NO
-echo "Job and employees successfully inserted.";
-?>
 
-<!DOCTYPE html>
-    <html lang="en">
-
-    <head>  
-    <html lang="en">
-    <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factory Manager.css">
-    <link rel="stylesheet" href="factorymanager2.css">
-    </head>
-
-    <body>
-        <header>
-            <?php include_once "../inc/header.inc.php"; ?>
-            <h1>Congratulations Job has been posted</h1>
-            <?php DisplayInformation(); ?>
-        </header>
-        <main>
-            <a href="AddJob.php"><button class="jobsOverview-btn" id="AddJobs-btn">Add Another Job</button></a>
-                    <a href="job-history.php"><button class="jobsOverview-btn" id="history-btn">Job History</button></a>
-            <a href="JobsOverview.php"><button class="jobsOverview-btn" id="history-btn">Back To Job Overview</button></a>
-        </main>
-    </body>
-    </html>
-
+header("Location: Job-Added.php");

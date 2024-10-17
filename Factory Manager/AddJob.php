@@ -41,9 +41,9 @@ $conn->close();
 
     <body>
         <header>
-            <?php include_once '../inc/header.inc.php'; ?>
+            <?php include_once '../inc/header.inc.php';?>
             <h1>Add Job</h1>
-            <?php DisplayInformation();?>
+            <div id="user-role"><?php DisplayInformation(); ?></div>
         </header>
         
 

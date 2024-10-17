@@ -36,12 +36,16 @@
         <link rel="stylesheet" href="../Styles/Style.css">
         <link rel="stylesheet" href="../Styles/Factory Manager.css">
         <link rel="stylesheet" href="factorymanager2.css">
-        <title>Roles</title> 
-        <?php include_once '../inc/header.inc.php';?>
+        <title>Assign Roles</title> 
     </head>
 
 
     <body>
+        <header>
+            <?php include_once '../inc/header.inc.php';?>
+            <h1>Assign Roles</h1>
+            <div id="user-role"><?php DisplayInformation(); ?></div>
+        </header>
         
         <table class="table">
             <thead>

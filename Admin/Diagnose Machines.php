@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <?php require_once "../inc/loggedin.inc.php";
-    FactoryManagerCheck();?>
+    AdministratorCheck();?>
     <meta charset="UTF-8">
+    <meta name="author" content="Nathan" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Style.css">
-    <link rel="stylesheet" href="../Styles/Factory Manager.css">
+    <link rel="stylesheet" href="../Styles/Administrator.css">
     <title>Diagnose Machines</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
     </header>
     <main>
         <ul id="machines-ul">
-            <li><a href="Machines.php"><button>Machines Overview</button></a></li>
+            <li><a href="Machines.php"><button>Back to Machines</button></a></li>
         </ul>
 
         <table id="machines-table">

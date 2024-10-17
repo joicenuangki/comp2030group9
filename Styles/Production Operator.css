@@ -140,6 +140,10 @@ ul {
     li {
         margin-right: 10px;
     }
+
+    button {
+        padding: 10px;
+    }
 }
 
 #machines-table {
@@ -184,4 +188,14 @@ ul {
 
     }
 
+}
+
+#machines-ul {
+    padding: 0px;
+    list-style: none;
+    display: inline-flex;
+
+    button {
+        padding: 10px;
+    }
 }

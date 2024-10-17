@@ -22,7 +22,8 @@
         </form>
     </header>
     <main id="manage-employees-main">
-        <ul>
+        <a href="Add Employees.php"><button id="add-employee">Add Employee</button></a>
+        <ul id="employee-management">
             <li>
                 <form method="post" id="employee-management-form">
                     <ul>

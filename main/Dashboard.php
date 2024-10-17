@@ -17,7 +17,9 @@
 </head>
 <body>
     <header>
+        <?php include_once '../inc/header.inc.php';?>
         <h1>Dashboard</h1>
+        <div id="user-role"><?php DisplayInformation(); ?></div>
     </header>
     
     <form method="POST" id="dataForm">
@@ -27,7 +29,7 @@
         <label for="machine">Machine:</label>
         <select name="machine" id="machine">
         <?php
-        require_once "../inc/dbconn.inc.php";
+        require "../inc/dbconn.inc.php";
 
             // get options
             $sql = "SELECT MachineName FROM Machines";

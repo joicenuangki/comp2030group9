@@ -1,0 +1,59 @@
+
+
+#machines-ul {
+    padding: 0px;
+    list-style: none;
+    display: inline-flex;
+
+    li {
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px;
+    }
+}
+
+#machines-table {
+    width: 100%;
+    border-collapse:collapse;
+
+    td {
+        border: black 2px solid;
+        padding: 5px;
+    }
+
+    th {
+        padding: 5px;
+        background-color: #9293c0;
+        border: black 2px solid;
+    }
+
+    .commissioned {
+        background-color: white;
+    }
+
+    .decommissioned {
+        background-color: rgb(255, 91, 91);
+    }
+
+    textarea {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        resize: none;
+    }
+    
+
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        padding-top: 10px;
+        padding-bottom: 10%;
+        display: block;
+        box-sizing: border-box;
+
+    }
+
+}

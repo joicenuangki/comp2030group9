@@ -1,5 +1,5 @@
 
-<?php include_once '../inc/header.inc.php';
+<?php 
     require_once "../inc/loggedin.inc.php"; 
     FactoryManagerCheck(); 
     require "../inc/dbconn.inc.php";
@@ -31,6 +31,8 @@ $conn->close();
     <link rel="stylesheet" href="../Styles/Style.css">
     <link rel="stylesheet" href="../Styles/Factory Manager.css">
     <link rel="stylesheet" href="factorymanager2.css">
+    <meta name="author" content="Elij" />
+    <title>Add Job</title>
     
 
     <head>
@@ -38,7 +40,12 @@ $conn->close();
     </head>
 
     <body>
-        <h1></h1>
+        <header>
+            <?php include_once '../inc/header.inc.php'; ?>
+            <h1>Add Job</h1>
+            <?php DisplayInformation();?>
+        </header>
+        
 
         
 

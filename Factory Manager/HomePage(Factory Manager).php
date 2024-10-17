@@ -18,29 +18,18 @@
         <p></p>
     </header>
     <main>
-        <a href="dashboard.php">
-            <button type="button">See Dashboard</button>
-        </a>
-        <p></p>
-        <a href="Machines.php">
-            <button type="button">Manage Machines</button>
-        </a>
-        <p></p>
-        <a href="JobsOverview.php">
-        <button>Jobs Overview</button>
-        </a>
-        <p></p>
-        <a href="assign-roles.php">
-        <button>Assign Roles</button>
-        </a>
-        <p></p>
-        <a href="View Task Notes.php">
-            <button type="button">Create Task Notes</button>
-        </a>
-        <P></P>
-        <button>Report a Problem</button>
-        <P></P>
-        <button>Logout</button>
+    <a href="Diagnose Machines.php"><button id="add-employee">Monitor Factory Performance</button></a>
+    <p></p>
+    <a href="Machines.php"><button id="add-employee">Update Machines</button></a>
+    <p></p>
+    <a href="JobsOverview.php"><button id="add-employee">Update Jobs</button></a>
+    <p></p>
+    <a href="JobsOverview.php"><button id="add-employee">Assign Machines?</button></a>
+    <p></p>
+    <a href="../main/Dashboard.php"><button id="add-employee">View Dashboard</button></a>
+    <p></p>
+    <a href="../main/Logout.php"><button id="add-employee">Log Out</button></a>
+    <p></P>
 
         <img 
         src="../Images/CM - Manufacturer option 1.jpg"

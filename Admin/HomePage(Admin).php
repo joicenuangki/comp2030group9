@@ -18,23 +18,20 @@
         <p></p>
     </header>
     <main>
-        <button>Add Another New Job</button>
-        <p></p>
-        <button>Manage User Roles</button>
-        <P></P>
-        <button>Manage User Roles</button>
-        <p></p>
-        <button>See Diagrams</button>
-        <p></p>
-        <P></P>
-        <button>Report a Problem</button>
-        <P></P>
-        <button>Logout</button>
+    <a href="Manage Employees.php"><button id="add-employee">Manage User Accounts</button></a>
+    <p></p>
+    <a href="../Factory Manager/JobsOverview.php"><button id="add-employee">Manage User Roles</button></a>
+    <p></p>
+    <a href="../main/Dashboard.php"><button id="add-employee">View Dashboard</button></a>
+    <p></P>
+    <a href="../main/Logout.php"><button id="add-employee">Log Out</button></a>
+    <p></P>
 
         <img 
         src="../Images/CM - Manufacturer option 1.jpg"
         alt="Ribbon"
         class="Manufactoring"
+    
         >
     </main>
     <footer>

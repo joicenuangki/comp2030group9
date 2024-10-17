@@ -24,7 +24,7 @@
     
     <form method="POST" id="dataForm">
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date" value="<?php echo isset($_POST['date']) ? $_POST['date'] : ''; ?>">
         
         <label for="machine">Machine:</label>
         <select name="machine" id="machine">
@@ -109,7 +109,7 @@
     }
 ?>
 
-<canvas id="myCanvas" width="800" height="400"></canvas>
+<canvas id="myCanvas" width="1000" height="500"></canvas>
 
 <script>
     <?php 
@@ -133,10 +133,10 @@
         const metric = data.map(entry => entry[metricName]);
         
         // Graph dimensions
-        const graphHeight = 300;
-        const graphWidth = 700;
+        const graphHeight = 400;
+        const graphWidth = 900;
         const startX = 50;  // Starting X position for the graph
-        const startY = 350; // Starting Y position for the graph
+        const startY = 450; // Starting Y position for the graph
         const maxY = Math.max(...metric) * 1.1; // A little padding for Y-axis
 
         function drawGraph() {

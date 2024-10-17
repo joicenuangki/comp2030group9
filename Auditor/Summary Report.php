@@ -33,10 +33,10 @@
     <main>
     <form method="POST">
         <label for="start_date">Start Date:</label>
-        <input type="datetime-local" id="start_date" name="start_date" required>
-        
+        <input type="datetime-local" id="start_date" name="start_date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>">
+
         <label for="end_date">End Date:</label>
-        <input type="datetime-local" id="end_date" name="end_date" required>
+        <input type="datetime-local" id="end_date" name="end_date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>">
 
         <input type="submit" name="submit" value="Fetch Data">
         <br></br>

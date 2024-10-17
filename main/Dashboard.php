@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="../Styles/Style.css">
     <title>Dashboard</title>
 
-    <style>
-        canvas {
-            border: 1px solid black;
-        }
-    </style>
-
 </head>
 <body>
     <header>
@@ -87,9 +81,18 @@
         //fetch logs from logs
         $sql = "SELECT `timestamp`, $metric
         FROM `Factory Logs`
-        WHERE machine_name = '$machine' and `timestamp` BETWEEN  '$startOfDay' and '$endOfDay'
-        ORDER BY timestamp ASC"; 
-        if ($result = mysqli_query($conn, $sql)) {
+        WHERE machine_name = ? and `timestamp` BETWEEN  ? and ?
+        ORDER BY timestamp ASC";
+
+        $statement = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($statement, "sss", $machine, $startOfDay, $endOfDay);
+        if (!mysqli_stmt_execute($statement)) {
+            echo(mysqli_error($conn));
+            exit;
+        }
+        $result = mysqli_stmt_get_result($statement);
+        mysqli_stmt_close($statement);
+
             if (mysqli_num_rows($result) >= 1 ) {
                 $data = [];
                 
@@ -105,11 +108,11 @@
             else {
                 echo "No records found.";
             }
-        }
+        
     }
 ?>
 
-<canvas id="myCanvas" width="1000" height="500"></canvas>
+<canvas id="myCanvas" width="1800" height="700"></canvas>
 
 <script>
     <?php 
@@ -123,7 +126,6 @@
     ?>
 
     if (data.length === 0) {
-        //alert("No data available to display.");
     } else {
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
@@ -133,65 +135,63 @@
         const metric = data.map(entry => entry[metricName]);
         
         // Graph dimensions
-        const graphHeight = 400;
-        const graphWidth = 900;
-        const startX = 50;  // Starting X position for the graph
-        const startY = 450; // Starting Y position for the graph
-        const maxY = Math.max(...metric) * 1.1; // A little padding for Y-axis
+        const graphHeight = 600;
+        const graphWidth = 1700;
+        const startX = 50;  
+        const startY = 650; 
+        const maxY = Math.max(...metric) * 1.1; // padding for Y-axis
 
         function drawGraph() {
-            // Clear the canvas
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             // Draw the axes
             ctx.beginPath();
             ctx.moveTo(startX, startY); // X-axis
             ctx.lineTo(startX + graphWidth, startY);
             ctx.moveTo(startX, startY); // Y-axis
             ctx.lineTo(startX, startY - graphHeight);
-            ctx.strokeStyle = 'black'; // Ensure the axis lines are visible
+            ctx.strokeStyle = 'black';
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            // Y-axis labels
+            // Y-axis
             ctx.font = '12px Arial';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'black';
             for (let i = 0; i <= 5; i++) {
-                const label = (i * maxY / 5).toFixed(1); // Dividing into 5 segments
+                const label = (i * maxY / 5).toFixed(1); 
                 const y = startY - (i * graphHeight / 5);
-                ctx.fillText(label, startX - 10, y + 4); // Add some padding for text
+                ctx.fillText(label, startX - 10, y + 4);
                 ctx.beginPath();
-                ctx.moveTo(startX - 5, y); // Draw tick marks
+                ctx.moveTo(startX - 5, y); 
                 ctx.lineTo(startX, y);
                 ctx.stroke();
             }
 
             // X-axis
             ctx.textAlign = 'center';
-            const skipLabels = Math.ceil(timestamps.length / 15); // Only show every nth timestamp
+            const skipLabels = Math.ceil(timestamps.length / 24); // Only show nth timestamps
 
             for (let i = 0; i < timestamps.length; i++) {
-                if (i % skipLabels === 0) { // Only draw every nth label
+                if (i % skipLabels === 0) {
                     const x = startX + (i * (graphWidth / (timestamps.length - 1)));
-                    ctx.fillText(timestamps[i], x, startY + 20); // Positioning the timestamps
+                    ctx.fillText(timestamps[i], x, startY + 20);
                 }
             }
 
             ctx.beginPath();
-            ctx.moveTo(startX, startY - (metric[0] * graphHeight / maxY)); // Start at the first point
+            ctx.moveTo(startX, startY - (metric[0] * graphHeight / maxY));
 
             for (let i = 0; i < metric.length; i++) {
                 const x = startX + (i * (graphWidth / (metric.length - 1)));
-                const y = startY - (metric[i] * graphHeight / maxY); // Scale metric to fit graph height
-                ctx.lineTo(x, y);  // Line from previous point to current point
+                const y = startY - (metric[i] * graphHeight / maxY);
+                ctx.lineTo(x, y);
             }
+            
+            //line between dots
+            ctx.strokeStyle = 'blue';  
+            ctx.lineWidth = 2;         
+            ctx.stroke();              
 
-            ctx.strokeStyle = 'blue';  // Ensure the line is visible (blue color)
-            ctx.lineWidth = 2;         // Set a thicker width for the line
-            ctx.stroke();              // Draw the line
-
-            // Now draw data points and labels **after** drawing the line
+            //datapoints
             for (let i = 0; i < metric.length; i++) {
                 const x = startX + (i * (graphWidth / (metric.length - 1)));
                 const y = startY - (metric[i] * graphHeight / maxY);
@@ -199,23 +199,17 @@
                 // Draw data points as circles
                 ctx.beginPath();
                 ctx.arc(x, y, 3, 0, 2 * Math.PI);
-                ctx.fillStyle = 'blue';  // Fill the circles blue
+                ctx.fillStyle = 'blue';
                 ctx.fill();
                 ctx.stroke();
 
-                // Label metric at each point
-                ctx.fillStyle = 'black'; // Label color
-                ctx.fillText(metric[i], x, y - 10); // Display metric value above the point
+                // Labels above data points
+                ctx.fillStyle = 'black'; 
+                ctx.fillText(metric[i], x, y - 10);
             }
         }  
     drawGraph();
     }
 </script>
-
-
-    <main>
-
-
-    </main>
 </body>
 </html>

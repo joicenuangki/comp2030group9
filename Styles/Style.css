@@ -51,6 +51,10 @@ body {
         font-family: 'Times New Roman', Times, serif;
     }
 
+    canvas {
+        border: 1px solid black;
+        margin-left: 20px;
+    }
 }
 
 #user-role {

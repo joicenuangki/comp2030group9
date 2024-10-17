@@ -6,22 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ben Ellis">
     <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Auditor.css">
     <title>Summary Report</title>
 </head>
-<style>
-    table {
-        width: 90%; /* Set to 90% of the parent container */
-        border-collapse: collapse;
-        margin: 0 auto; /* Center the table */
-    }
-    
-    th, td {
-        padding: 4px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
+
 
 <body>
     <header>
@@ -57,11 +45,19 @@
 
         $sql = "SELECT * 
         FROM `Factory Logs`
-        where `timestamp` between '$start_date' and '$end_date' ";
+        where `timestamp` between ? and ? ";
+
+        $statement = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($statement, "ss", $start_date, $end_date);
+        if (!mysqli_stmt_execute($statement)) {
+            echo(mysqli_error($conn));
+            exit;
+        }
+        $result = mysqli_stmt_get_result($statement);
+        mysqli_stmt_close($statement);
         
-        if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) >= 1 ) {
-                echo "<table border='1'>
+                echo "<table border='1' id = 'report_table'>
                 <thead>
                     <tr>
                         <th>Timestamp</th>
@@ -93,7 +89,7 @@
             } else {
                 echo "No records found.";
             } 
-        }
+        
     }
     mysqli_close($conn);
     ?>

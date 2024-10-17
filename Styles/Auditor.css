@@ -161,3 +161,17 @@
     }
 
 }
+#report_table{
+    
+        width: 90%; /* Set to 90% of the parent container */
+        border-collapse: collapse;
+        margin: 0 auto; /* Center the table */
+    
+    
+    th, td {
+        padding: 4px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+}

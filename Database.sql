@@ -7,7 +7,7 @@ CREATE TABLE `Employees` (
   `Role` ENUM('Production Operator', 'Factory Manager', 'Administrator', 'Auditor') NOT NULL,
   `FName` VARCHAR(25) NOT NULL,
   `LName` VARCHAR(25) NOT NULL,
-  `Password` CHAR(30) NOT NULL,
+  `Password` CHAR(60) NOT NULL,
   PRIMARY KEY (`EmployeeID`)
 );
 
@@ -110,18 +110,18 @@ INSERT INTO Machines (MachineName, Description) VALUES
   ('Energy Management System', 'A system that monitors, reports and manages the factories energy usage of each machine connected to the power');
 
 INSERT INTO Employees (Role, FName, LName, Password) VALUES
-  ('Production Operator', 'John', 'Miller', '1234'),
-  ('Factory Manager', 'Emily', 'Johnson', '4321'),
-  ('Auditor', 'James', 'Clark', 'abc'),
-  ('Administrator', 'Jessica', 'White', 'password'),
-  ('Production Operator', 'Sarah', 'Turner', 'YV073B5RNPgF'),
-  ('Production Operator', 'David', 'Smith', 'mHG20R9ce19J'),
-  ('Factory Manager', 'Michael', 'Brown', '52FYu0TGba7R'),
-  ('Factory Manager', 'Laura', 'Davis', 'CWMdJcz1593H'),
-  ('Auditor', 'James', 'Clark', 'c9TQh5F80Abm'),
-  ('Auditor', 'Robert', 'Walker', 'IO7h41g3B44G'),
-  ('Administrator', 'Daniel', 'Harris', 'H402Au9jiyKB'),
-  ('Administrator', 'Sophia', 'Martin', '%,&WjTN>)k/767%:n=PF{-"rw');
+  ('Production Operator', 'John', 'Miller', '$2y$10$C6DYhLb1dtkBr5WacReoBeT3H1EYpR.yVUgB5496XORDUi0.OB2Q6'),
+  ('Factory Manager', 'Emily', 'Johnson', '$2y$10$b0lEW1j4FvNDl.R82HTa2.s.I6ygIEhL/wlkbynd8nVmfYJNt644O'),
+  ('Auditor', 'James', 'Clark', '$2y$10$SO8FoXDNhazpLZsJnt.w8O0kNwdm8rC6NcAgfcSRtGiODiX8zh5r6'),
+  ('Administrator', 'Jessica', 'White', '$2y$10$DY29y/V3xPIMLPpCfsgIXuH882nHsCf6gzJ6GYn4baVN6DkJ1MzG2'),
+  ('Production Operator', 'Sarah', 'Turner', '$2y$10$HhjnxbZXw9sMvmV4G0A14OIDIq.Sd.Z9dtgOqg6AvQqZk.Dpy/LKO'),
+  ('Production Operator', 'David', 'Smith', '$2y$10$a7iHMoH0LVJHKYtxeyhDyuwZ92Mj6VSbJqagClH3e9LsAP64GePuu'),
+  ('Factory Manager', 'Michael', 'Brown', '$2y$10$6rQlj2AODz3nnIDu5nXrBuVg021d819WrHvQVQB3rPI6zRQOF1k9C'),
+  ('Factory Manager', 'Laura', 'Davis', '$2y$10$Dmp1/eWT5NG96ulqkOtrmuO65mVX/D7ow30xJ0XfLWPcmALJpfuki'),
+  ('Auditor', 'James', 'Clark', '$2y$10$rKHTZMiteq83VRWwUYwKxOn5RNqXwNj5IQ9tUZ38Gk4BQ0ghksmuG'),
+  ('Auditor', 'Robert', 'Walker', '$2y$10$gFFDtnPACZ4qzTq/a.umzO7XE4W2jQGuw4QSMdLFwuhf0eCgfpBei'),
+  ('Administrator', 'Daniel', 'Harris', '$2y$10$KKG92AogN.79rKCOS0nwGeTWRCRJElcu0hy8rbEbi9HTCNULaRzcy'),
+  ('Administrator', 'Sophia', 'Martin', '$2y$10$Sxn.zmuFxTyL8Fz5yI4dHeaEFDfU0bsTgeJuBTMjU5Ib5XWwqiv42');
 
 INSERT INTO `Specialization` (ProductionOperatorID, Specialization) VALUES
  (1, 'Machine Loader'),

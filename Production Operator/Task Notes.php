@@ -33,12 +33,13 @@
                         <th>Subject</th>
                         <th>Assigned Manager/s</th>
                         <th>Time Observed</th>
-                        <th></th>
+                        <th>Edit</th>
+                        <th>Mark Completed</th>
                     </tr>
                     <?php
                     require "../inc/dbconn.inc.php";
 
-                    $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR ', ') AS AssignedFactoryManagers
+                    $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR '<br>') AS AssignedFactoryManagers
                             FROM Notes
                             LEFT JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
                             LEFT JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
@@ -58,26 +59,47 @@
                         if(5 <= mysqli_num_rows($result)) {
                             for($i = 0; $i < 5; $i++) {
                                 $row = mysqli_fetch_assoc($result);
-                                echo("<form method='post' action='Edit Task Notes.php'><tr>
+                                echo("<tr>
                                         <td>$row[NoteID]</td>
                                         <td>$row[Subject]</td>
                                         <td>$row[AssignedFactoryManagers]</td>
                                         <td>$row[TimeObserved]</td>
-                                        <td><input type='submit' value='Edit'></td>
+                                        <td>
+                                            <form method='post' action='Edit Task Notes.php'>
+                                                <input type='submit' value='Edit'>
+                                                <input type='hidden' name='noteID' value='$row[NoteID]'>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form method='post' action='Note Modification.php'>
+                                                <input type='submit' value='Complete'>
+                                                <input type='hidden' name='noteID' value='$row[NoteID]'>
+                                            </form>
+                                        </td>
                                         <input type='hidden' name='noteID' value='$row[NoteID]'>
-                                </tr></form>");
+                                    </tr>");
                             }
                         }
                         else {
                             while($row = mysqli_fetch_assoc($result)) {
-                                echo("<form method='post' action='Edit Task Notes.php'><tr>
+                                echo("<tr>
                                         <td>$row[NoteID]</td>
                                         <td>$row[Subject]</td>
                                         <td>$row[AssignedFactoryManagers]</td>
                                         <td>$row[TimeObserved]</td>
-                                        <td><input type='submit' value='Edit'></td>
-                                        <input type='hidden' name='noteID' value='$row[NoteID]'>
-                                </tr></form>");
+                                        <td>
+                                            <form method='post' action='Edit Task Notes.php'>
+                                                <input type='submit' value='Edit'>
+                                                <input type='hidden' name='noteID' value='$row[NoteID]'>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form method='post' action='Note Modification.php'>
+                                                <input type='submit' value='Complete'>
+                                                <input type='hidden' name='noteID' value='$row[NoteID]'>
+                                            </form>
+                                        </td>
+                                    </tr>");
                             }
                         }
                     }

@@ -56,16 +56,16 @@
 
                         if(isset($_POST['employeeType']) && ($_POST['employeeType'] == 'Administrator' || $_POST['employeeType'] == 'Auditor' || $_POST['employeeType'] == 'Factory Manager' || $_POST['employeeType'] == 'Production Operator')) {
 
-                            $sql = "SELECT EmployeeID, CONCAT(FName, ' ', LName) AS FullName, Role FROM Employees WHERE Role = ? AND (EmployeeID LIKE ? OR FName LIKE ? OR LName LIKE ?)";
+                            $sql = "SELECT EmployeeID, CONCAT(FName, ' ', LName) AS FullName, Role FROM Employees WHERE Role = ? AND (EmployeeID LIKE ? OR FName LIKE ? OR LName LIKE ?) AND EmployeeID != ?;";
 
                             $statement = mysqli_prepare($conn, $sql);
-                            mysqli_stmt_bind_param($statement, 'ssss', $_POST['employeeType'], $search, $search, $search);
+                            mysqli_stmt_bind_param($statement, 'ssssi', $_POST['employeeType'], $search, $search, $search, $_SESSION['employeeID']);
                         }
                         else {
-                            $sql = "SELECT EmployeeID, CONCAT(FName, ' ', LName) AS FullName, Role FROM Employees WHERE (EmployeeID LIKE ? OR FName LIKE ? OR LName LIKE ?)";
+                            $sql = "SELECT EmployeeID, CONCAT(FName, ' ', LName) AS FullName, Role FROM Employees WHERE (EmployeeID LIKE ? OR FName LIKE ? OR LName LIKE ?) AND EmployeeID != ?;";
                             
                             $statement = mysqli_prepare($conn, $sql);
-                            mysqli_stmt_bind_param($statement, 'sss', $search, $search, $search);
+                            mysqli_stmt_bind_param($statement, 'sssi', $search, $search, $search, $_SESSION['employeeID']);
                         }
 
                         if(!mysqli_stmt_execute($statement)) {

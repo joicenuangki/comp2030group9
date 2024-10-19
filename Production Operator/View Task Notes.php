@@ -32,7 +32,8 @@
                 <th>Time Observed</th>
                 <th>Active Task</th>
                 <th>Note</th>
-                <th></th>
+                <th>Edit</th>
+                <th>Complete</th>
             </tr>
             <?php
             require "../inc/dbconn.inc.php";
@@ -44,7 +45,7 @@
                 $search = "%";
             }
 
-            $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR ', ') AS AssignedFactoryManagers, Jobs.Name, NoteContence FROM Notes
+            $sql = "SELECT Notes.NoteID, Subject, TimeObserved, GROUP_CONCAT(CONCAT(Employees.FName, ' ', Employees.LName) SEPARATOR '<br>') AS AssignedFactoryManagers, Jobs.Name, NoteContence FROM Notes
                     LEFT JOIN `Assigned to Notes` ON Notes.NoteID = `Assigned to Notes`.NoteID
                     LEFT JOIN Employees ON `Assigned to Notes`.FactoryManagerID = Employees.EmployeeID
                     LEFT JOIN Jobs ON Notes.JobID = Jobs.JobID
@@ -70,6 +71,7 @@
                         <td>$row[Name]</td>
                         <td>$row[NoteContence]</td>
                         <td><input type='submit' value='Edit'></td>
+                        <td><input type='submit' value='Complete'></td>
                         <input type='hidden' name='noteID' value=$row[NoteID]>
                     </tr></form>");
             }

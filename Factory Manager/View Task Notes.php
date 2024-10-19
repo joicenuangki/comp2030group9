@@ -17,7 +17,6 @@
     <main id="view-task-note-main">
         <form method="post">
             <input type="text" placeholder="Search" id="search-bar" name="search" value="<?php echo(isset($_POST['search']) ? $_POST['search'] : ''); ?>" autocomplete="off" autofocus>
-            <input type="submit" value="Search">
         </form>
         <table>
             <tr>
@@ -27,6 +26,7 @@
                 <th>Time Observed</th>
                 <th>Active Task</th>
                 <th>Note</th>
+                <th>Mark Complete</th>
             </tr>
             <?php
             require "../inc/dbconn.inc.php";
@@ -64,6 +64,11 @@
                         <td>$row[TimeObserved]</td>
                         <td>$row[Name]</td>
                         <td>$row[NoteContence]</td>
+                        <td>
+                            <form action='Note Modification.php' method='post'>
+                                <input type='hidden' value='$row[NoteID]' name='noteID'>
+                                <input type='submit' value='Complete'>
+                            </form>
                     </tr>");
             }
 

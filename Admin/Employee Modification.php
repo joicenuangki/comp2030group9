@@ -25,10 +25,12 @@ elseif($_POST['action'] == "Update Employee") {
         mysqli_stmt_bind_param($statement, 'sssi', $_POST['FName'], $_POST['LName'], $_POST['Role'], $_POST['EmployeeID']);
     }
     else {
+        $hashedPass = password_hash($_POST['Password'], PASSWORD_DEFAULT);
+
         $sql = "UPDATE Employees SET FName = ?, LName = ?, Role = ?, Password = ? WHERE EmployeeID = ?;";
 
         $statement = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($statement, 'sssi', $_POST['FName'], $_POST['LName'], $_POST['Role'], $_POST['Password'], $_POST['EmployeeID']);
+        mysqli_stmt_bind_param($statement, 'ssssi', $_POST['FName'], $_POST['LName'], $_POST['Role'], $hashedPass, $_POST['EmployeeID']);
     }
 
     if (!mysqli_stmt_execute($statement)) {
@@ -82,13 +84,15 @@ elseif($_POST['action'] == "Add Employee") {
         header("Location: Employee Modification.php");
         exit;
     }
+
+    $hashedPass = password_hash($_POST['Password'], PASSWORD_DEFAULT);
     
     require "../inc/dbconn.inc.php";
     
     $sql = "INSERT INTO Employees(FName, LName, Role, Password) VALUES(?, ?, ?, ?);";
     
     $statement = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($statement, 'ssss', $_POST['FName'], $_POST['LName'], $_POST['Role'], $_POST['Password']);
+    mysqli_stmt_bind_param($statement, 'ssss', $_POST['FName'], $_POST['LName'], $_POST['Role'], $hashedPass);
     
     if (!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));

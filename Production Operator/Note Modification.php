@@ -6,16 +6,12 @@ require_once "../inc/loggedin.inc.php";
 ProductionOperatorCheck();
 require "../inc/dbconn.inc.php";
 
-
-if (!isset($_POST['noteID']) || !isset($_POST['subject']) || !isset($_POST['note']) || !isset($_POST['datetime']) || !isset($_POST['task'])) {
+if (!isset($_POST['noteID'])) {
     header("Location: ./Task Notes.php");
     exit;
 }
-$id = $_SESSION['employeeID'];
 $noteID = $_POST['noteID'];
-$subject = $_POST['subject'];
-$note = $_POST['note'];
-$datetime = $_POST['datetime'];
+
 
 if($_POST['task'] != '') {
     $task = $_POST['task'];
@@ -24,7 +20,7 @@ else {
     $task = NULL;
 }
 
-$sql = "SELECT ProductionOperatorID FROM Notes WHERE NoteID = ?";
+$sql = "SELECT ProductionOperatorID FROM Notes WHERE NoteID = ?;";
 
 $statement = mysqli_prepare($conn, $sql);
 
@@ -39,12 +35,27 @@ $row = mysqli_fetch_assoc($result);
 
 mysqli_stmt_close($statement);
 
-if($row['ProductionOperatorID'] != $id) {
+if($row['ProductionOperatorID'] != $_SESSION['employeeID']) {
     header("Location: ./Task Notes.php");
     exit;
 }
 
 if($_POST['action'] == 'Update') {
+
+    if (!isset($_POST['subject']) || !isset($_POST['note']) || !isset($_POST['datetime']) || !isset($_POST['task'])) {
+        header("Location: ./Task Notes.php");
+        exit;
+    }
+    $subject = $_POST['subject'];
+    $note = $_POST['note'];
+    $datetime = $_POST['datetime'];
+    
+    if($_POST['task'] != '') {
+        $task = $_POST['task'];
+    }
+    else {
+        $task = NULL;
+    }
 
     $assignedCount = $_POST['assignedCount'];
     $unassignedCount = $_POST['unassignedCount'];
@@ -78,9 +89,7 @@ if($_POST['action'] == 'Update') {
         mysqli_stmt_bind_param($statement, 'ssis', $subject, $note, $task, $datetime);
     }
     else {
-        $sql = "UPDATE Notes 
-                SET Subject = ?, NoteContence = ?, JobID = ?
-                WHERE NoteID = $noteID;";
+        $sql = "UPDATE Notes SET Subject = ?, NoteContence = ?, JobID = ? WHERE NoteID = $noteID;";
 
         $statement = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($statement, 'ssi', $subject, $note, $task);
@@ -121,8 +130,9 @@ if($_POST['action'] == 'Update') {
     mysqli_close($conn);
 
     header("Location: Note Update Successful.php");
+    exit;
 }
-elseif($_POST['action'] == 'Delete') {
+elseif($_POST['action'] == 'Complete') {
 
     $sql = "UPDATE Notes SET Completed = 1  WHERE NoteID = ?;";
 
@@ -136,7 +146,7 @@ elseif($_POST['action'] == 'Delete') {
 
     mysqli_stmt_close($statement);
 
-    $sql = "DELETE FROM `Assigned to Notes` WHERE NoteID = ?";
+    $sql = "DELETE FROM `Assigned to Notes` WHERE NoteID = ?;";
 
     $statement = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($statement, "i", $noteID);
@@ -148,9 +158,29 @@ elseif($_POST['action'] == 'Delete') {
     mysqli_stmt_close($statement);
     mysqli_close($conn);
 
-    header("Location: ../Production Operator/Note Deletion Successful.php");
+    header("Location: Note Completed.php");
+    exit;
+}
+elseif($_POST['action'] == 'Delete') {
+
+    $sql = "DELETE FROM Notes WHERE NoteID = ?;";
+
+    $statement = mysqli_prepare($conn, $sql);
+    mysqli_stmt_prepare($statement, 'i', $noteID);
+
+    if(!mysqli_stmt_execute($statement)) {
+        echo(mysqli_error($conn));
+        exit;
+    }
+
+    mysqli_stmt_close($statement);
+    mysqli_close($conn);
+
+    header("Location: Note Deletion Successful.php");
+    exit;
 }
 else {
     mysqli_close($conn);
     header("Location: ./Task Notes.php");
+    exit;
 }

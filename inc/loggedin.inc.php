@@ -4,11 +4,42 @@
 
 session_start();
 
+
+//check if logged in
 if(!isset($_SESSION['employeeID']) || !isset($_SESSION['role'])) {
     header("Location: ../main/LoginPage.php");
     exit;
 }
 
+//check if timed out server side (if the user hasn't changed or reloaded pages in 5 mins)
+if (isset($_SESSION['timeOfPageChange']) && (time() - $_SESSION['timeOfPageChange']) > 300) {
+    header("Location: ../main/Logout.php");
+    exit;
+}
+$_SESSION['timeOfPageChange'] = time();
+
+
+?> <!--check if timed out from client side due to the user not doing anything for 2 mins --> 
+<script type="text/javascript">
+    let autoLogoutTime;
+    function resetTimeout() {
+        clearTimeout(autoLogoutTime);
+        autoLogoutTime = setTimeout(logout, 120000);
+    }
+    function logout() {
+        window.location.href = '../main/Logout.php';
+    }
+
+    document.onkeypress = resetTimeout;
+    document.onmousemove = resetTimeout;
+    document.onscroll = resetTimeout;
+    document.onload = resetTimeout;
+</script>
+
+
+
+<?php
+//checks for each role type to see if they are logged in as the correct role for their page
 function ProductionOperatorCheck() {
     if($_SESSION['role'] != 'Production Operator'){
         header("Location: ../main");

@@ -199,3 +199,22 @@ ul {
         padding: 10px;
     }
 }
+
+#jobs-main {
+    table {
+        width: 100%;
+        border-collapse:collapse;
+
+        td {
+            border: black 2px solid;
+            padding: 5px;
+        }
+
+        th {
+            padding: 5px;
+            background-color: #9293c0;
+            border: black 2px solid;
+        }
+    }
+    
+}

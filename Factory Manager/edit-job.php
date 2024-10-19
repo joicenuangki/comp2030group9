@@ -45,9 +45,10 @@ $conn->close();
         <meta charset="UTF-8">
         <meta name="author" content="Elij" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Styles/Style.css">
         <link rel="stylesheet" href="../Styles/Factory Manager.css">
-        <link rel="stylesheet" href="factorymanager2.css">
+        <meta name="author" content="Elijah" />
     </head>
 
     <body>

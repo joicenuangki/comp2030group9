@@ -17,6 +17,7 @@ body {
             font-size: 48px;
             font-weight: bold;
             margin: 0px;
+            text-align: center; 
         }
 
         #header-bar {
@@ -43,6 +44,10 @@ body {
             }
 
         }
+    }
+
+    title {
+        text-align: center; 
     }
 
     main {

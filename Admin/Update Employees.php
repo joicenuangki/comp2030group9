@@ -10,7 +10,7 @@
             header("Location: Manage Employees.php");
             exit;
         }
-        $sql = "SELECT FName, LName, Role FROM Employees WHERE EmployeeID = ?";
+        $sql = "SELECT FName, LName, Role FROM Employees WHERE EmployeeID = ?;";
         
         $statement = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($statement, 'i', $_POST['EmployeeID']);
@@ -38,7 +38,7 @@
         <h1>Update Employee</h1>
         <div id="user-role"><?php DisplayInformation(); ?></div>
     </header>
-    <main>
+    <main id="update-employees-main">
         <h2>Editing Employee ID: <?php echo($_POST['EmployeeID']); ?></h2>
         <form method="post" action="Employee Modification.php" id="update-employees-form">
             <ul>
@@ -61,10 +61,10 @@
                 </li>
             </ul>
             <input type="hidden" name="EmployeeID" value="<?php echo($_POST['EmployeeID']); ?>">
-            <input type="submit" name="action" value="Update Employee"><br>
-            <input type="submit" name="action" value="Delete Employee">
+            <input type="submit" name="action" value="Update Employee" class="submit-button"><br>
+            <input type="submit" name="action" value="Delete Employee" class="submit-button">
         </form>
-        <a href="Manage Employees.php"><button>Cancel</button></a>
+        <a href="Manage Employees.php"><button id="cancel-button">Cancel</button></a>
     </main>
 </body>
 </html>

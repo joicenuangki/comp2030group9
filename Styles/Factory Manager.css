@@ -1,203 +1,22 @@
-/* General Styles */
-body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #e0e0e0;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
+#add-machines-form {
+    ul {
+        list-style: none;
+    }
 
-header {
-    background-color: #888;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 2rem;
-}
+    input {
+        padding: 5px;
+    }
+    button {
+        padding: 5px;
+    }
+    
+    ul{
+        margin-right: 100px;
 
-h1, h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #444;
-    margin-bottom: 20px;
-}
-
-#user-role {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #555;
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    font-size: 1.2rem;
-    background-color: #f0f0f0;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-    color: #333;
-}
-
-th {
-    background-color: #666;
-    color: white;
-    font-size: 1.5rem;
-}
-
-td {
-    background-color: #eee;
-}
-
-td form input[type='submit'], td form select {
-    background-color: #888;
-    color: #fff;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 0;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-td form input[type='submit']:hover, td form select:hover {
-    background-color: #555;
-}
-
-td form input[type='submit']:focus, td form select:focus {
-    outline: none;
-}
-
-td form select {
-    width: 100%;
-    padding: 8px;
-    background-color: #eee;
-    color: #333;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.jobsOverview-btn {
-    display: block;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #777;
-    color: white;
-    border: 2px solid black;
-    border-radius: 0;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.jobsOverview-btn:hover {
-    background-color: #555;
-}
-
-#JobsOverview {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-button:focus {
-    outline: none;
-}
-
-button, th, td {
-    touch-action: manipulation;
-}
-
-input[type="text"], input[type="date"], textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #eee;
-    font-size: 1rem;
-    color: #333;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-input[type="button"], button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: white;
-    background-color: #777;
-    border: 2px solid black;
-    border-radius: 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 10px 0;
-}
-
-input[type="button"]:hover, button:hover {
-    background-color: #555;
-}
-
-input[type="button"]:focus, button:focus, input[type="text"]:focus, textarea:focus, select:focus {
-    outline: none;
-}
-
-.btns {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#input_fields {
-    margin-bottom: 20px;
-}
-
-table td form input[type='submit'] {
-    background-color: #777;
-    color: #fff;
-    padding: 10px 20px;
-    border: 2px solid black;
-    border-radius: 0;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-table td form input[type='submit']:hover {
-    background-color: #555;
-}
-
-table td form input[type='submit']:focus {
-    outline: none;
-}
-
-/* Machines Section */
-#add-machines-form ul {
-    list-style: none;
-}
-
-#add-machines-form input, #add-machines-form button {
-    padding: 5px;
-}
-
-#add-machines-form ul {
-    margin-right: 100px;
-}
-
-#add-machines-form ul li {
-    padding-bottom: 10px;
+        li {
+            padding-bottom: 10px;
+        }
+    }
 }
 
 #machine-name-error-message {
@@ -205,97 +24,145 @@ table td form input[type='submit']:focus {
 }
 
 #machines-ul {
+    padding: 0px;
+    list-style: none;
+    display: inline-flex;
+
+    li {
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    b {
+        color: rgb(190, 2, 2);
+    }
+}
+
+#machines-table {
+    width: 100%;
+    border-collapse:collapse;
+
+    td {
+        border: black 2px solid;
+        padding: 5px;
+    }
+
+    th {
+        padding: 5px;
+        background-color: #9293c0;
+        border: black 2px solid;
+    }
+
+    .commissioned {
+        background-color: white;
+    }
+
+    .decommissioned {
+        background-color: rgb(255, 91, 91);
+    }
+
+    textarea {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        resize: none;
+    }
+    
+
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        padding-top: 10px;
+        padding-bottom: 10%;
+        display: block;
+        box-sizing: border-box;
+
+    }
+
+}
+
+
+
+
+#view-task-note-main {
+    #search-bar {
+        margin-bottom: 20px;
+    }
+        
+    #sort-button {
+        padding: 0%;
+        height: 52px;
+        width: 52px;
+    
+        img {
+            padding: 0%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    
+    table {
+        width: 100%;
+        border-collapse:collapse;
+        tr {
+            background-color: #aaaaaa;
+        }
+    
+        td {
+            border: black 2px solid;
+            padding: 5px;
+        }
+    
+        th {
+            padding: 5px;
+            background-color: #5a5a5a;
+            border: black 2px solid;
+        }
+    }
+}
+
+#job-ul {
     padding: 0;
     list-style: none;
     display: inline-flex;
 }
 
-#machines-ul li {
+#job-ul li {
     margin-right: 10px;
 }
 
-#machines-ul button {
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form select, form textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
     padding: 10px;
 }
 
-#machines-ul b {
-    color: rgb(190, 2, 2);
-}
-
-#machines-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#machines-table td {
-    border: black 2px solid;
-    padding: 5px;
-}
-
-#machines-table th {
-    padding: 5px;
-    background-color: #9293c0;
-    border: black 2px solid;
-}
-
-#machines-table .commissioned {
-    background-color: white;
-}
-
-#machines-table .decommissioned {
-    background-color: rgb(255, 91, 91);
-}
-
-#machines-table textarea {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+textarea {
     resize: none;
 }
 
-#machines-table input {
+#jobName, #jobDate {
     width: 100%;
-    height: 100%;
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 10%;
-    display: block;
-    box-sizing: border-box;
 }
 
-/* View Task Notes */
-#view-task-note-main #search-bar {
-    margin-bottom: 20px;
-}
-
-#view-task-note-main #sort-button {
-    padding: 0;
-    height: 52px;
-    width: 52px;
-}
-
-#view-task-note-main #sort-button img {
-    padding: 0;
-    width: 50px;
-    height: 50px;
-}
-
-#view-task-note-main table {
+#machine, #priority {
     width: 100%;
-    border-collapse: collapse;
 }
 
-#view-task-note-main table tr {
-    background-color: #aaaaaa;
-}
 
-#view-task-note-main table td {
-    border: black 2px solid;
-    padding: 5px;
-}
 
-#view-task-note-main table th {
-    padding: 5px;
-    background-color: #5a5a5a;
-    border: black 2px solid;
-}
+

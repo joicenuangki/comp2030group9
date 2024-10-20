@@ -71,7 +71,7 @@ CREATE TABLE `Assigned to Notes` (
 
 CREATE TABLE `Factory Logs` (
   `timestamp` TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
-  `machine_name` VARCHAR(40),
+  `machine_name` VARCHAR(50),
   `temperature` FLOAT,
   `pressure` FLOAT,
   `vibration` FLOAT,

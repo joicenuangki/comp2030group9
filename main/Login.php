@@ -1,4 +1,48 @@
-<meta name="author" content="Nathan" />
+<meta name="author" content="Nathan & Joice" >
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
+
+<style>
+        h1 {
+            color: black; 
+            font-family: 'Source Sans Pro';
+            font-size:60px !important;
+        }
+
+        h2 {
+            color: black; 
+            font-family: 'Source Sans Pro';
+            font-size:30px !important;
+        }
+
+        body {
+            background-image: url(Screenshot\ 2024-10-20\ 183808.png);
+            background-size: 125%; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            
+        }
+
+        ul {
+            list-style-type: none; 
+            padding: 500px; /* Space inside the box */
+            width: 400px; /* Box size fits the content of the text */
+            height: 400px;
+            margin: 0 auto; /* Center the box horizontally */
+            border: 2px white; /* Optional: Adds a border around the box */
+            background-color: white; /* Change this to your desired color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border-radius: 15px; 
+
+
+            display: flex; /* Enable Flexbox */
+            flex-direction: column; /* Arrange items in a column */
+            justify-content: center; /* Center items vertically */
+
+            font-family: 'Source Sans Pro';
+        }
+    
+    </style>
 
 <?php
 
@@ -37,4 +81,7 @@ if(isset($_POST['employeeID']) && isset($_POST['password'])) {
             exit;
         }
     }   
+
+    
+
 }

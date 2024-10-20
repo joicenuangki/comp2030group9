@@ -14,6 +14,7 @@
     <header>
         <?php require_once "../inc/header.inc.php"; ?>
         <h1>Note Updated Successfully!</h1>
+        <?php DisplayInformation() ?>
     </header>
     <main>
         <img 

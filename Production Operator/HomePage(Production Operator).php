@@ -5,10 +5,10 @@
     ProductionOperatorCheck();?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Joice" /><!-- TODO: enter your name as the content attribute value -->
+    <meta name="author" content="Joice" />
     <meta name="description" content="Practical 1" />
     <link rel="stylesheet" href="../Styles/Style.css">
-    <title>My Portfolio</title>
+    <title>Homepage</title>
     
 </head>
 <body>
@@ -57,11 +57,11 @@
         } 
 
         #user-role {
-        margin: 0 auto; /* Center the element horizontally */
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center; /* Center text inside the element */
-        width: fit-content;
+            margin: 0 auto;
+            font-size: 20px;
+            font-weight: lighter;
+            text-align: center;
+            width: fit-content;
         }
     
     </style>  

@@ -32,10 +32,6 @@
         font-weight: lighter;
     }
 
-    li {
-
-    }
-
     a {
         text-decoration: none; 
         color: black;

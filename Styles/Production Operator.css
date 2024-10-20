@@ -37,11 +37,9 @@
         input {
             width: 100%;
             height: 100%;
-            padding-top: 50%;
-            padding-bottom: 50%;
+            padding-top: 10px;
+            padding-bottom: 10px;
             display: block;
-            box-sizing: border-box;
-
         }
     }
 }
@@ -94,11 +92,9 @@
         input {
             width: 100%;
             height: 100%;
-            padding-top: 50%;
-            padding-bottom: 50%;
+            padding-top: 10px;
+            padding-bottom: 10px;
             display: block;
-            box-sizing: border-box;
-
         }
     }
 }
@@ -153,6 +149,7 @@ ul {
     td {
         border: black 2px solid;
         padding: 5px;
+        background-color: white;
     }
 
     th {

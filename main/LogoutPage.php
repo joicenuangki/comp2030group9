@@ -63,9 +63,9 @@
             flex-direction: column; /* Arrange items in a column */
             justify-content: center; /* Center items vertically */
             align-items: center; /* Center items horizontally */
-            padding: 700px; /* Adjust padding as needed */
+            padding: 70px; /* Adjust padding as needed */
             width: 1000px; /* Box size fits the content of the text */
-            height: 400px;
+            height: 300px;
             margin: 0 auto; /* Center the box horizontally */
             border: 2px solid white; /* Optional: Adds a border around the box */
             background-color: white; /* Change this to your desired color */

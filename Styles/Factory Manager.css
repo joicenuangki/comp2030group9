@@ -164,6 +164,47 @@ textarea {
 }
 
 
+#JobsOverview .jobsOverview-btn {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin: 10px; 
+    transition: background-color 0.3s ease; 
+}
+
+
+#JobsOverview .jobsOverview-btn:hover {
+    background-color: #45a049; 
+}
+
+
+#AddJobs-btn {
+    background-color: #2196F3; 
+}
+
+#AddJobs-btn:hover {
+    background-color: #1e88e5; 
+}
+
+#history-btn {
+    background-color: #FF5722;
+}
+
+#history-btn:hover {
+    background-color: #e64a19; 
+}
+
+#addrole-btn {
+    background-color: #9C27B0; /
+}
+
+#addrole-btn:hover {
+    background-color: #7b1fa2; 
+}
 
 #JobsOverview .jobsOverview-btn {
     background-color: #4CAF50; 

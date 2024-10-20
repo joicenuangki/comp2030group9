@@ -12,7 +12,7 @@ if(!isset($_SESSION['employeeID']) || !isset($_SESSION['role'])) {
 }
 
 //check if timed out server side (if the user hasn't changed or reloaded pages in 5 mins)
-if (isset($_SESSION['timeOfPageChange']) && (time() - $_SESSION['timeOfPageChange']) > 300) {
+if (isset($_SESSION['timeOfPageChange']) && (time() - $_SESSION['timeOfPageChange']) > 720) {
     header("Location: ../main/Logout.php");
     exit;
 }
@@ -24,7 +24,7 @@ $_SESSION['timeOfPageChange'] = time();
     let autoLogoutTime;
     function resetTimeout() {
         clearTimeout(autoLogoutTime);
-        autoLogoutTime = setTimeout(logout, 120000);
+        autoLogoutTime = setTimeout(logout, 360000);
     }
     function logout() {
         window.location.href = '../main/Logout.php';

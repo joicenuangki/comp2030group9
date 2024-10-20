@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ben Ellis" />
     <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Auditor.css">
     <title>Dashboard</title>
 
 </head>
@@ -16,7 +17,7 @@
         <div id="user-role"><?php DisplayInformation(); ?></div>
     </header>
     
-    <form method="POST" id="dataForm">
+    <form method="POST" id="data_Form">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" value="<?php echo isset($_POST['date']) ? $_POST['date'] : ''; ?>">
         

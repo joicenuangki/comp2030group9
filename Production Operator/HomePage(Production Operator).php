@@ -8,7 +8,9 @@
     <meta name="author" content="Joice" /><!-- TODO: enter your name as the content attribute value -->
     <meta name="description" content="Practical 1" />
     <link rel="stylesheet" href="../Styles/Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
     <title>My Portfolio</title>
+    
 </head>
 <body>
     <header>
@@ -33,6 +35,12 @@
         >
     </main>
     <footer>
-    </footer>    
+    </footer>  
+    <style>
+
+        h1{
+            font-family: 'Source Sans Pro';
+        }
+    </style>  
 </body>
 </html>

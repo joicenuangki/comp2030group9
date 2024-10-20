@@ -1,13 +1,16 @@
 body {
+    margin: 0;
+    background-image: url(Screenshot\ 2024-10-20\ 183808.png);
+    background-size: 125%; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Source Sans Pro';
     margin: 0;
     color: black;
     font-size: 24px;
 
-    
     header {
-        padding: 10px;
 
         h1 {
             font-size: 48px;
@@ -16,17 +19,18 @@ body {
         }
 
         #header-bar {
-            margin: 0;
-            padding-left: 0;
-
+            font-family: 'Source Sans Pro';
+            margin: 0px;/* Remove margin from the header */
+            background-color: white;
+            color: #3b3b3b; /* Change text color to be visible against the white background */
             font-size: 24px;
-            list-style: none;
-            border-bottom: #3b3b3b 1px solid;
+
+            background-color: white; /* Change this to your desired color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
             display: flex;
             justify-content: space-between;
             
-
             a {
                 text-decoration: none;
                 color: #3b3b3b;
@@ -56,6 +60,10 @@ body {
         border: 1px solid black;
         margin-left: 20px;
     }
+}
+
+header {
+    margin: 0; /* Ensure the header has no margin */
 }
 
 #user-role {

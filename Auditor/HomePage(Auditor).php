@@ -38,22 +38,22 @@ h1{
 }
 
 button {
-    font-family: 'Source Sans Pro' !important; /* Font for the button */
-    background-color: black; /* Button background color */
-    font-size: 16px; /* Font size */
-    color: white; /* Text color */
+    font-family: 'Source Sans Pro' !important; 
+    background-color: black; 
+    font-size: 16px; 
+    color: white; 
     width: 210px;
     height: 50px;
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
     border: black;
-    display: block; /* Make buttons block elements */
-    margin: 10px auto; /* Center buttons with automatic left/right margins */
+    display: block; 
+    margin: 10px auto; 
     }
 
 #button:hover {
-    background-color: #444; /* Change this to your desired hover color */  
+    background-color: #444; 
 } 
 
 </style>  

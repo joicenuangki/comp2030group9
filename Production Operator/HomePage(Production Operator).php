@@ -15,7 +15,7 @@
 <body>
     <header>
         <?php include_once '../inc/header.inc.php';?>
-        <h1>Home Page</h1>
+        <h1>Welcome to the Home Page</h1>
         <div id="user-role"><?php DisplayInformation();?></div>
         <p></p>
     </header>
@@ -32,6 +32,8 @@
         src="../Images/CM - Manufacturer option 1.jpg"
         alt="Ribbon"
         class="Manufactoring"
+        style="margin-left: 400px;" 
+/>
         >
     </main>
     <footer>
@@ -40,7 +42,28 @@
 
         h1{
             font-family: 'Source Sans Pro';
+            font-size: 70px !important;
+            text-align: center;
         }
+
+        button {
+                margin-left: 30px;
+                font-family: 'Source Sans Pro' !important; /* Font for the button */
+                background-color: black; /* Button background color */
+                font-size: 16px; /* Font size */
+                color: white; /* Text color */
+                width: 210px;
+                height: 50px;
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3s ease;
+                border: black;
+            }
+
+        #button:hover {
+            background-color: #444; /* Change this to your desired hover color */  
+        } 
+    
     </style>  
 </body>
 </html>

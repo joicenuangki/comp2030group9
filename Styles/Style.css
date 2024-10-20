@@ -11,6 +11,7 @@ body {
     font-size: 24px;
 
     header {
+        margin-top: 50px;
 
         h1 {
             font-size: 48px;
@@ -67,7 +68,10 @@ header {
 }
 
 #user-role {
+    margin-left: 30px;
     font-size: 20px;
+    font-weight: lighter
+
 }
 
 #success-body {

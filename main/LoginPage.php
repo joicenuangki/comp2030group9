@@ -71,7 +71,7 @@
 
         input { 
         font-family: 'Source Sans Pro';  
-        font-size: 20px; /* Font size */ 
+        font-size: 16px; /* Font size */ 
         padding: 19px; /* Add some padding for better appearance */
         border: none; /* Basic border */
         border-radius: 2px;  /* Rounded corners */

@@ -25,7 +25,7 @@
         ul {
             list-style-type: none; 
             padding: 500px; /* Space inside the box */
-            width: 400px; /* Box size fits the content of the text */
+            width: 450px; /* Box size fits the content of the text */
             height: 400px;
             margin: 0 auto; /* Center the box horizontally */
             border: 2px white; /* Optional: Adds a border around the box */

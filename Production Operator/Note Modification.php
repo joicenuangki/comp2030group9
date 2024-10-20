@@ -13,7 +13,7 @@ if (!isset($_POST['noteID'])) {
 $noteID = $_POST['noteID'];
 
 
-if($_POST['task'] != '') {
+if(isset($_POST['task']) && $_POST['task'] != '') {
     $task = $_POST['task'];
 }
 else {
@@ -158,7 +158,7 @@ elseif($_POST['action'] == 'Complete') {
     mysqli_stmt_close($statement);
     mysqli_close($conn);
 
-    header("Location: Note Completed.php");
+    header("Location: Note Completion Successful.php");
     exit;
 }
 elseif($_POST['action'] == 'Delete') {
@@ -166,7 +166,7 @@ elseif($_POST['action'] == 'Delete') {
     $sql = "DELETE FROM Notes WHERE NoteID = ?;";
 
     $statement = mysqli_prepare($conn, $sql);
-    mysqli_stmt_prepare($statement, 'i', $noteID);
+    mysqli_stmt_bind_param($statement, 'i', $noteID);
 
     if(!mysqli_stmt_execute($statement)) {
         echo(mysqli_error($conn));

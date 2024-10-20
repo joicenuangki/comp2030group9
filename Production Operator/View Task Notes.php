@@ -63,17 +63,26 @@
             $result = mysqli_stmt_get_result($statement);
 
             while($row = mysqli_fetch_assoc($result)) {
-                echo("<form method='post' action='./Edit Task Notes.php'><tr>
+                echo("<tr>
                         <td>$row[NoteID]</td>
                         <td>$row[Subject]</td>
                         <td>$row[AssignedFactoryManagers]</td>
                         <td>$row[TimeObserved]</td>
                         <td>$row[Name]</td>
                         <td>$row[NoteContence]</td>
-                        <td><input type='submit' value='Edit'></td>
-                        <td><input type='submit' value='Complete'></td>
-                        <input type='hidden' name='noteID' value=$row[NoteID]>
-                    </tr></form>");
+                        <td>
+                            <form method='post' action='./Edit Task Notes.php'>
+                                <input type='submit' name='action' value='Edit'>
+                                <input type='hidden' name='noteID' value='$row[NoteID]'>
+                            </form>
+                        </td>
+                        <td>
+                            <form method='post' action='Note Modification'>
+                                <input type='submit' name='action' value='Complete'>
+                                <input type='hidden' name='noteID' value='$row[NoteID]'>
+                            </form>
+                        </td>
+                    </tr>");
             }
             mysqli_stmt_close($statement);
             mysqli_close($conn);

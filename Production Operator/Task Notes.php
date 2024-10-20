@@ -66,13 +66,13 @@
                                         <td>$row[TimeObserved]</td>
                                         <td>
                                             <form method='post' action='Edit Task Notes.php'>
-                                                <input type='submit' value='Edit'>
+                                                <input type='submit' name='action' value='Edit'>
                                                 <input type='hidden' name='noteID' value='$row[NoteID]'>
                                             </form>
                                         </td>
                                         <td>
                                             <form method='post' action='Note Modification.php'>
-                                                <input type='submit' value='Complete'>
+                                                <input type='submit' name='action' value='Complete'>
                                                 <input type='hidden' name='noteID' value='$row[NoteID]'>
                                             </form>
                                         </td>
@@ -89,13 +89,13 @@
                                         <td>$row[TimeObserved]</td>
                                         <td>
                                             <form method='post' action='Edit Task Notes.php'>
-                                                <input type='submit' value='Edit'>
+                                                <input type='submit' name='action' value='Edit'>
                                                 <input type='hidden' name='noteID' value='$row[NoteID]'>
                                             </form>
                                         </td>
                                         <td>
                                             <form method='post' action='Note Modification.php'>
-                                                <input type='submit' value='Complete'>
+                                                <input type='submit' name='action' value='Complete'>
                                                 <input type='hidden' name='noteID' value='$row[NoteID]'>
                                             </form>
                                         </td>

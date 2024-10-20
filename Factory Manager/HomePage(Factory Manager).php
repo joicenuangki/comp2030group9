@@ -14,7 +14,7 @@
 <body>
     <header>
         <?php include_once '../inc/header.inc.php';?>
-        <h1>Home Page</h1>
+        <h1>Welcome to the Home Page</h1>
         <div id="user-role"><?php DisplayInformation();?></div>
         <p></p>
     </header>
@@ -26,14 +26,36 @@
     <a href="JobsOverview.php"><button id="add-employee">Update Jobs</button></a>
     <p></p>
     <a href="View Task Notes.php"><button id="add-employee">View Task Notes</button></a>
-    <p></P>
-        <img 
-        src="../Images/CM - Manufacturer option 1.jpg"
-        alt="Ribbon"
-        class="Manufactoring"
-        >
     </main>
     <footer>
     </footer>    
 </body>
+<style>
+
+h1{
+    font-family: 'Source Sans Pro';
+    font-size: 70px !important;
+    text-align: center;
+}
+
+button {
+    font-family: 'Source Sans Pro' !important; /* Font for the button */
+    background-color: black; /* Button background color */
+    font-size: 16px; /* Font size */
+    color: white; /* Text color */
+    width: 210px;
+    height: 50px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    border: black;
+    display: block; /* Make buttons block elements */
+    margin: 10px auto; /* Center buttons with automatic left/right margins */
+    }
+
+#button:hover {
+    background-color: #444; /* Change this to your desired hover color */  
+} 
+
+</style> 
 </html>

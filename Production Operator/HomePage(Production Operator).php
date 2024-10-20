@@ -27,14 +27,6 @@
     <a href="View Jobs.php"><button id="Update-Jobs">Update Jobs</button></a>
     <p></P>
     <a href="Task Notes.php"><button id="add-employee">Manage Task Notes</button></a>
-    <p></P>
-        <img 
-        src="../Images/CM - Manufacturer option 1.jpg"
-        alt="Ribbon"
-        class="Manufactoring"
-        style="margin-left: 400px;" 
-/>
-        >
     </main>
     <footer>
     </footer>  
@@ -47,17 +39,18 @@
         }
 
         button {
-                margin-left: 30px;
-                font-family: 'Source Sans Pro' !important; /* Font for the button */
-                background-color: black; /* Button background color */
-                font-size: 16px; /* Font size */
-                color: white; /* Text color */
-                width: 210px;
-                height: 50px;
-                border-radius: 10px; 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s ease;
-                border: black;
+            font-family: 'Source Sans Pro' !important; /* Font for the button */
+            background-color: black; /* Button background color */
+            font-size: 16px; /* Font size */
+            color: white; /* Text color */
+            width: 210px;
+            height: 50px;
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            border: black;
+            display: block; /* Make buttons block elements */
+            margin: 10px auto; /* Center buttons with automatic left/right margins */
             }
 
         #button:hover {

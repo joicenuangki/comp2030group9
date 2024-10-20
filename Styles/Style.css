@@ -68,10 +68,11 @@ header {
 }
 
 #user-role {
-    margin-left: 30px;
+    margin: 0 auto; /* Center the element horizontally */
     font-size: 20px;
-    font-weight: lighter
-
+    font-weight: lighter;
+    text-align: center; /* Center text inside the element */
+    width: fit-content;
 }
 
 #success-body {

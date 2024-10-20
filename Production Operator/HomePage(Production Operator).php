@@ -8,10 +8,11 @@
     <meta name="author" content="Joice" />
     <meta name="description" content="Practical 1" />
     <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Production Operator.css">
     <title>Homepage</title>
     
 </head>
-<body>
+<body id="home-production-operator">
     <header>
         <?php include_once '../inc/header.inc.php';?>
         <h1>Welcome to the Home Page</h1>
@@ -29,41 +30,6 @@
     </main>
     <footer>
     </footer>  
-    <style>
 
-        h1{
-        font-family: 'Times New Roman', Times, serif; 
-        font-size: 70px !important;
-        text-align: center !important;  
-        }
-
-        button {
-            font-family: 'Times New Roman', Times, serif; 
-            background-color: black; 
-            font-size: 16px; 
-            color: white; 
-            width: 210px;
-            height: 50px;
-            border-radius: 10px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-            border: black;
-            display: block; 
-            margin: 10px auto; 
-            }
-
-        #button:hover {
-            background-color: #444; 
-        } 
-
-        #user-role {
-            margin: 0 auto;
-            font-size: 20px;
-            font-weight: lighter;
-            text-align: center;
-            width: fit-content;
-        }
-    
-    </style>  
 </body>
 </html>

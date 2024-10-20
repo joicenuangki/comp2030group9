@@ -1,216 +1,223 @@
-#task-note-main {
-    ul {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    #task-note-buttons {
-        a {
-            button {
-                width: 500px;
-                height: 200px;
-                padding: 100px;
-                padding-bottom: 10%;
-                padding-top: 10%;
-                font-size: 32px;
-                margin-bottom: 20px;
-            }
-        }
-    }
-
-    table {
-        width: 100%;
-        border-collapse:collapse;
-    
-        td {
-            border: black 2px solid;
-            padding: 5px;
-            background-color: #e9e9e9;
-        }
-    
-        th {
-            padding: 5px;
-            background-color: #9293c0;
-            border: black 2px solid;
-        }
-
-        input {
-            width: 100%;
-            height: 100%;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            display: block;
-        }
-    }
+#task-note-main ul {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-#view-task-note-main {
-    #search-bar {
-        margin-bottom: 20px;
-    }
-        
-    #sort-button {
-        padding: 0%;
-        height: 52px;
-        width: 52px;
-    
-        img {
-            padding: 0%;
-            width: 50px;
-            height: 50px;
-        }
-    }
-
-    ul {
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-
-        button {
-            padding: 10px;
-        }
-    }
-
-    
-    
-    table {
-        width: 100%;
-        border-collapse:collapse;
-    
-        td {
-            border: black 2px solid;
-            padding: 5px;
-            background-color: #e9e9e9;
-        }
-    
-        th {
-            padding: 5px;
-            background-color: #9293c0;
-            border: black 2px solid;
-        }
-
-        input {
-            width: 100%;
-            height: 100%;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            display: block;
-        }
-    }
+#task-note-main #task-note-buttons a button {
+    width: 500px;
+    height: 200px;
+    padding: 100px;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
+#task-note-main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#task-note-main table td {
+    border: black 2px solid;
+    padding: 5px;
+    background-color: #e9e9e9;
+}
+
+#task-note-main table th {
+    padding: 5px;
+    background-color: #9293c0;
+    border: black 2px solid;
+}
+
+#task-note-main table input {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+#view-task-note-main #search-bar {
+    margin-bottom: 20px;
+}
+
+#view-task-note-main #sort-button {
+    padding: 0%;
+    height: 52px;
+    width: 52px;
+}
+
+#view-task-note-main #sort-button img {
+    padding: 0%;
+    width: 50px;
+    height: 50px;
+}
+
+#view-task-note-main ul {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#view-task-note-main ul button {
+    padding: 10px;
+}
+
+#view-task-note-main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#view-task-note-main table td {
+    border: black 2px solid;
+    padding: 5px;
+    background-color: #e9e9e9;
+}
+
+#view-task-note-main table th {
+    padding: 5px;
+    background-color: #9293c0;
+    border: black 2px solid;
+}
+
+#view-task-note-main table input {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+}
 
 ul {
     list-style: none;
     padding-left: 0px;
 }
-    
 
-
-#note-form-list{
+#note-form-list {
     display: flex;
     justify-content: space-between;
+}
 
-    input {
-        padding: 5px;
-    }
+#note-form-list input {
+    padding: 5px;
+}
 
-    #subject-field {
-        width: 300px;
-    }
-    
-    ul{
-        margin-right: 100px;
+#note-form-list #subject-field {
+    width: 300px;
+}
 
-        li {
-            padding-bottom: 10px;
-        }
-    }
+#note-form-list ul {
+    margin-right: 100px;
+}
+
+#note-form-list ul li {
+    padding-bottom: 10px;
 }
 
 #machines-ul {
     padding: 0px;
     list-style: none;
     display: inline-flex;
+}
 
-    li {
-        margin-right: 10px;
-    }
+#machines-ul li {
+    margin-right: 10px;
+}
 
-    button {
-        padding: 10px;
-    }
+#machines-ul button {
+    padding: 10px;
 }
 
 #machines-table {
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
     background-color: white;
-    td {
-        border: black 2px solid;
-        padding: 5px;
-    }
-
-    th {
-        padding: 5px;
-        background-color: #9293c0;
-        border: black 2px solid;
-    }
-
-    .commissioned {
-        background-color: white;
-    }
-
-    .decommissioned {
-        background-color: rgb(255, 91, 91);
-    }
-
-    textarea {
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        resize: none;
-    }
-    
-
-    input {
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-        padding-top: 10px;
-        padding-bottom: 10%;
-        display: block;
-        box-sizing: border-box;
-
-    }
-
 }
 
-#machines-ul {
-    padding: 0px;
-    list-style: none;
-    display: inline-flex;
-
-    button {
-        padding: 10px;
-    }
+#machines-table td {
+    border: black 2px solid;
+    padding: 5px;
 }
 
-#jobs-main {
-    table {
-        width: 100%;
-        border-collapse:collapse;
+#machines-table th {
+    padding: 5px;
+    background-color: #9293c0;
+    border: black 2px solid;
+}
 
-        td {
-            border: black 2px solid;
-            padding: 5px;
-        }
+#machines-table .commissioned {
+    background-color: white;
+}
 
-        th {
-            padding: 5px;
-            background-color: #9293c0;
-            border: black 2px solid;
-        }
-    }
-    
+#machines-table .decommissioned {
+    background-color: rgb(255, 91, 91);
+}
+
+#machines-table textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#machines-table input {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10%;
+    display: block;
+    box-sizing: border-box;
+}
+
+#jobs-main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#jobs-main table td {
+    border: black 2px solid;
+    padding: 5px;
+}
+
+#jobs-main table th {
+    padding: 5px;
+    background-color: #9293c0;
+    border: black 2px solid;
+}
+
+
+
+#home-production-operator h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 70px !important;
+    text-align: center !important;
+}
+
+#home-production-operator button {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: black;
+    font-size: 16px;
+    color: white;
+    width: 210px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    border: black;
+    display: block;
+    margin: 10px auto;
+}
+
+#home-production-operator button:hover {
+    background-color: #444;
+}
+
+#home-production-operator #user-role {
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    width: fit-content;
 }

@@ -32,7 +32,7 @@
 h1{
     font-family: 'Times New Roman', Times, serif; 
     font-size: 70px !important;
-    text-align: center;
+    text-align: center !important;
 }
 
 button {

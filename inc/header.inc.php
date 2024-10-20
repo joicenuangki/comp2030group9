@@ -15,7 +15,7 @@
 
     #header-bar {
         padding: 10px;
-        left: 0
+        left: 0;
         list-style-type: none; /* Remove bullet points */
         background-color: #f8f8f8; /* Optional: background color for visibility */
         display: flex; /* Use flexbox for alignment */

@@ -40,11 +40,6 @@
         }
 
         body {
-            background-image: url(Screenshot\ 2024-10-20\ 183808.png);
-            background-size: 125%; 
-            background-position: center; 
-            background-repeat: no-repeat;
-            
             align-items: center;
             text-align: center;
             margin-top: 10%;

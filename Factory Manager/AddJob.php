@@ -40,7 +40,7 @@ $conn->close();
 
     </head>
 
-    <body>
+    <<body id="addjob">
         <header>
             <?php include_once '../inc/header.inc.php';?>
             <h1>Add Job</h1>

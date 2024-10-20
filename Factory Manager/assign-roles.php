@@ -41,7 +41,7 @@
     </head>
 
 
-    <body>
+    <body id="assign-roles-page">
         <header>
             <?php include_once '../inc/header.inc.php';?>
             <h1>Assign Roles</h1>

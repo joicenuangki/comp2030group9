@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="factorymanager2.css">
     </head>
 
-    <body>
+    <<body id="job-added-page">>
         <header>
             <?php include_once "../inc/header.inc.php"; ?>
             <h1>Congratulations Job has been posted</h1>

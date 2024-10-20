@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Styles/Factory Manager.css">
     </head>
 
-    <body>
+    <body id="role-updated-page">
         <header>
             <?php include_once "../inc/header.inc.php"; ?>
             <h1>ROLE UPDATED</h1>

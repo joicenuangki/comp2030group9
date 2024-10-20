@@ -44,7 +44,6 @@
 #machines-table {
     width: 100%;
     border-collapse:collapse;
-    background-color: white;
 
     td {
         border: black 2px solid;
@@ -166,4 +165,231 @@ textarea {
 
 
 
+#JobsOverview .jobsOverview-btn {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin: 10px; 
+    transition: background-color 0.3s ease; 
+}
 
+
+#JobsOverview .jobsOverview-btn:hover {
+    background-color: #45a049; 
+}
+
+
+#AddJobs-btn {
+    background-color: #2196F3; 
+}
+
+#AddJobs-btn:hover {
+    background-color: #1e88e5; 
+}
+
+#history-btn {
+    background-color: #FF5722;
+}
+
+#history-btn:hover {
+    background-color: #e64a19; 
+}
+
+#addrole-btn {
+    background-color: #9C27B0; /
+}
+
+#addrole-btn:hover {
+    background-color: #7b1fa2; 
+}
+#JobsOverview table {
+    border: 2px solid black; 
+    width: 100%;
+    border-collapse: collapse; 
+    background-color: #ffffff;
+    border-radius: 0;
+    box-shadow: none; 
+}
+
+
+#JobsOverview table th {
+    background-color: #9293c0; 
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border: 2px solid black; 
+}
+
+#JobsOverview table td {
+    padding: 10px;
+    border: 2px solid black; 
+}
+
+
+#JobsOverview div {
+    border: 2px solid black; 
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+
+#JobsOverview button {
+    border: 2px solid black;  
+    background-color: transparent;  
+    color: black;  
+    padding: 10px 20px;  
+    margin: 10px;
+    border-radius: 0;  
+    font-size: 14px;  
+    cursor: pointer;  
+    transition: background-color 0.3s ease, color 0.3s ease;  
+}
+
+
+#JobsOverview button:hover {
+    background-color: #f0f0f0;  
+    color: black;  
+}
+#addjob .container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+#addjob form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#addjob form input, #addjob form select, #addjob form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+#addjob button, #addjob input[type="button"] {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+}
+
+#addjob button:hover, #addjob input[type="button"]:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+#addjob #input_fields {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#addjob #user-role {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #666;
+    text-align: right;
+    padding: 10px;
+}
+
+#addjob h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#addjob textarea {
+    resize: vertical;
+}
+
+#addjob .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#addjob .btns input[type="button"] {
+    width: 48%;
+}
+
+#addjob header, #addjob h1, #addjob #user-role {
+    text-align: left;
+    margin-left: 0;
+}
+
+#job-added-page button {
+    background-color: white !important;
+    color: black !important; 
+    border: 2px solid black !important; 
+}
+
+#job-added-page button:hover {
+    background-color: #f0f0f0 !important; 
+}
+
+
+/* Styles for the Assign Roles page */
+#assign-roles-page table {
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#assign-roles-page table th {
+    background-color: #9293c0;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+#assign-roles-page table td {
+    padding: 10px;
+    border: 2px solid black;
+}
+
+#assign-roles-page .change-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#assign-roles-page .change-btn:hover {
+    background-color: #45a049;
+}
+
+#role-updated-page .jobsOverview-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#role-updated-page .jobsOverview-btn:hover {
+    background-color: #f0f0f0;
+}

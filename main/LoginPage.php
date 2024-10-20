@@ -29,6 +29,12 @@
         </form>
         <style>
 
+    h1{
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 70px !important;
+    text-align: center !important;
+    }
+
         li {
         margin-bottom: 1px; 
         }

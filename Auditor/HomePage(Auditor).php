@@ -25,6 +25,8 @@
         <p></P>
         <a href="Machines.php"><button id="add-employee">View Machines</button></a>
         <p></p>
+        <a href="View Employees.php"><button id="add-employee">View Employees</button></a>
+        <p></p>
     </main>
     <footer>
     </footer>    
@@ -34,7 +36,7 @@
 h1{
     font-family: 'Times New Roman', Times, serif; 
     font-size: 70px !important;
-    text-align: center;
+    text-align: center !important;
 }
 
 button {

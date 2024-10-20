@@ -1,228 +1,247 @@
-#manage-employees-main {
-    .employee-management {
+#manage-employees-main .employee-management {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
     padding: 0;
     margin: 0;
     width: 45%;
-    }
+}
 
-    input {
-        padding: 5px 10px;
-        width: 400px;
-        height: 75px;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-weight: bold;
-    }
-    
-    input:hover {
+#manage-employees-main input {
+    padding: 5px 10px;
+    width: 400px;
+    height: 75px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+#manage-employees-main input:hover {
     opacity: 0.8;
-    }
+}
 
-    #employee-management {
+#employee-management {
+    padding: 0%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
 
-        padding: 0%;
+#employee-management form ul {
+    padding: 0;
+    margin: 0;
+}
 
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
+#employee-management li {
+    margin-bottom: 10px;
+}
 
-        form ul {
-            padding: 0;
-            margin: 0;
-            
-        }
+#manage-employees-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-right: 20px;
+}
 
-        li {
-            margin-bottom: 10px;
-        }
+#manage-employees-table th {
+    background-color: #f2f2f2;
+}
 
-    }
-    
-    #manage-employees-table {
-        width: 100%;
-        border-collapse: collapse;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-        margin-right: 20px;
-        
-        th {
-            background-color: #f2f2f2;
-        }
+#manage-employees-table th, #manage-employees-table td {
+    border: 1px solid #686868;
+    padding: 10px;
+    text-align: left;
+}
 
-        th, td {
-        border: 1px solid #686868;
-        padding: 10px;
-        text-align: left;
-        }
+#manage-employees-table input {
+    padding: 5px 10px;
+    width: 100px;
+    height: 35px;
+}
 
-        input {
-            padding: 5px 10px;
-            width: 100px;
-            height: 35px;
-        }
-    }
+.administrator {
+    background-color: rgb(102, 205, 142);
+}
 
-    .administrator {
-        background-color: rgb(102, 205, 142);
-    }
-    .auditor {
-        background-color: rgb(110, 150, 190);
-    }
-    .factory-manager {
-        background-color: rgb(220, 90, 100);
-    }
-    .production-operator {
-        background-color: rgb(255, 230, 90);
-    }
+.auditor {
+    background-color: rgb(110, 150, 190);
+}
 
-    .administrator input:hover {
-        background-color: rgb(82, 185, 122);
-    }
-    .auditor input:hover {
-        background-color: rgb(90, 130, 170);
-    }
-    .factory-manager input:hover {
-        background-color: rgb(200, 70, 80);
-    }
+.factory-manager {
+    background-color: rgb(220, 90, 100);
+}
 
-    .production-operator input:hover {
-        background-color: rgb(235, 215, 70);
-    }
+.production-operator {
+    background-color: rgb(255, 230, 90);
+}
 
-    
+.administrator input:hover {
+    background-color: rgb(82, 185, 122);
+}
+
+.auditor input:hover {
+    background-color: rgb(90, 130, 170);
+}
+
+.factory-manager input:hover {
+    background-color: rgb(200, 70, 80);
+}
+
+.production-operator input:hover {
+    background-color: rgb(235, 215, 70);
 }
 
 #machines-ul {
     padding: 0px;
     list-style: none;
     display: inline-flex;
+}
 
-    li {
-        margin-right: 10px;
-    }
+#machines-ul li {
+    margin-right: 10px;
+}
 
-    button {
-        padding: 10px;
-    }
+#machines-ul button {
+    padding: 10px;
 }
 
 #machines-table {
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
     background-color: white;
-
-    td {
-        border: black 2px solid;
-        padding: 5px;
-    }
-
-    th {
-        padding: 5px;
-        background-color: #9293c0;
-        border: black 2px solid;
-    }
-
-    .commissioned {
-        background-color: white;
-    }
-
-    .decommissioned {
-        background-color: rgb(255, 91, 91);
-    }
-
-    textarea {
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        resize: none;
-    }
-    
-
-    input {
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-        padding-top: 10px;
-        padding-bottom: 10%;
-        display: block;
-        box-sizing: border-box;
-
-    }
-
-}
-#report_table{
-    
-        width: 90%;
-        border-collapse: collapse;
-        margin: 0 auto;
-    
-    
-    th, td {
-        padding: 4px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
 }
 
-#summary_table{
-        width: 90%;
-        border-collapse: collapse;
-        margin: 0 auto;
-        margin-bottom: 10px;
+#machines-table td {
+    border: black 2px solid;
+    padding: 5px;
+}
 
+#machines-table th {
+    padding: 5px;
+    background-color: #9293c0;
+    border: black 2px solid;
+}
 
-    th, td {
-        padding: 4px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
+#machines-table .commissioned {
+    background-color: white;
+}
+
+#machines-table .decommissioned {
+    background-color: rgb(255, 91, 91);
+}
+
+#machines-table textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#machines-table input {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10%;
+    display: block;
+    box-sizing: border-box;
+}
+
+#report_table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+#report_table th, #report_table td {
+    padding: 4px;
+}
+
+#report_table th {
+    background-color: #f2f2f2;
+}
+
+#summary_table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#summary_table th, #summary_table td {
+    padding: 4px;
+}
+
+#summary_table th {
+    background-color: #f2f2f2;
 }
 
 #summary_form {
-    display: flex;    
+    display: flex;
     justify-content: center;
     margin-bottom: 10px;
-        input[type ="datetime-local"],
-        input[type ="submit"]
-         {
-            padding: 15px;
-            font-size: 20px;
-            
-        }
-        label {
-            display: flex;
-            font-size: 35px;
-            align-items: center;
-            padding: 5px;
-        }
 }
 
-#data_Form{
-    display: flex;    
+#summary_form input[type="datetime-local"], #summary_form input[type="submit"] {
+    padding: 15px;
+    font-size: 20px;
+}
+
+#summary_form label {
+    display: flex;
+    font-size: 35px;
+    align-items: center;
+    padding: 5px;
+}
+
+#data_Form {
+    display: flex;
     justify-content: center;
     margin-bottom: 8px;
-    
-        input[type ="date"],
-        
-        input[type ="submit"]
-         {
-            padding: 15px;
-            font-size: 20px;
-            
-        }
-        label {
-            display: flex;
-            font-size: 35px;
-            align-items: center;
-            padding: 5px;
-        }
-        
-        
-        
 }
+
+#data_Form input[type="date"], #data_Form input[type="submit"] {
+    padding: 15px;
+    font-size: 20px;
+}
+
+#data_Form label {
+    display: flex;
+    font-size: 35px;
+    align-items: center;
+    padding: 5px;
+}
+
+#home-auditor button {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: black;
+    font-size: 16px;
+    color: white;
+    width: 210px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    border: black;
+    display: block;
+    margin: 10px auto;
+}
+
+#home-auditor button:hover {
+    background-color: #444;
+}
+
+#home-auditor #user-role {
+    margin: 0 auto; 
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center; 
+    width: fit-content;
+}
+
+#home-auditor, #home-auditor * {
+    text-align: center !important;
+}
+

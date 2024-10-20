@@ -8,6 +8,7 @@
     <meta name="author" content="Benjamin" />
     <meta name="description" content="Practical 1" />
     <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Auditor.css">
     <title>My Portfolio</title>
 </head>
 <body>

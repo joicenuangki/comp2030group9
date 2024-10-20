@@ -19,7 +19,7 @@ if (isset($_SESSION['timeOfPageChange']) && (time() - $_SESSION['timeOfPageChang
 $_SESSION['timeOfPageChange'] = time();
 
 
-?> <!--check if timed out from client side due to the user not doing anything for 2 mins --> 
+?>
 <script type="text/javascript">
     let autoLogoutTime;
     function resetTimeout() {

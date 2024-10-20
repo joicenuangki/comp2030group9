@@ -145,11 +145,10 @@ ul {
 #machines-table {
     width: 100%;
     border-collapse:collapse;
-
+    background-color: white;
     td {
         border: black 2px solid;
         padding: 5px;
-        background-color: white;
     }
 
     th {

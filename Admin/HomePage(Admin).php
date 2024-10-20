@@ -54,6 +54,15 @@ button {
     background-color: #444; 
 } 
 
+#user-role {
+        margin: 0 auto; /* Center the element horizontally */
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center; /* Center text inside the element */
+        width: fit-content;
+        }
+
+
 </style>  
 </body>
 </html>

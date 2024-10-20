@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
+
     <?php require_once "../inc/loggedin.inc.php";
     AuditorCheck();?>
     <meta charset="UTF-8" />
@@ -32,13 +32,13 @@
 <style>
 
 h1{
-    font-family: 'Source Sans Pro';
+    font-family: 'Times New Roman', Times, serif; 
     font-size: 70px !important;
     text-align: center;
 }
 
 button {
-    font-family: 'Source Sans Pro' !important; 
+    font-family: 'Times New Roman', Times, serif; 
     background-color: black; 
     font-size: 16px; 
     color: white; 

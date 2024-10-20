@@ -1,3 +1,6 @@
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet"> 
+</head>
 <body>
 <ul id="header-bar">
         <li><a href="../main">Home</a></li>
@@ -9,23 +12,24 @@
 
 <style>
     body {
-        margin: 0; /* Remove default body margin */
-        padding: 0; /* Remove default body padding */
+        margin: 0; 
+        padding: 0;
     }
 
     #header-bar {
+        font-family: 'Source Sans Pro';
         padding: 10px;
-        left: 0
-        list-style-type: none; /* Remove bullet points */
-        background-color: #f8f8f8; /* Optional: background color for visibility */
-        display: flex; /* Use flexbox for alignment */
-        justify-content: space-between; /* Space items evenly */
-        align-items: center; /* Center items vertically */
-        height: 20px; /* Set a fixed height */
-        position: fixed; /* Make the header fixed */
-        top: 0; /* Position it at the top */
-        width: 100%; /* Full width */
-        z-index: 1000; /* Ensure it stays above other content */
+        left: 0;
+        list-style-type: none; 
+        background-color: #f8f8f8; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        height: 20px; 
+        position: fixed; 
+        top: 0; 
+        width: 100%;
+        z-index: 1000; 
     }
 
     #title {
@@ -37,11 +41,11 @@
     }
 
     a {
-        text-decoration: none; /* Remove underline from links */
-        color: black; /* Set link color */
+        text-decoration: none; 
+        color: black; 
     }
 
     div {
-        padding-top: 60px; /* Add padding to avoid overlap with fixed header */
+        padding-top: 60px; 
     }
 </style>

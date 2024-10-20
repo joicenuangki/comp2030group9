@@ -5,7 +5,7 @@ body {
     background-position: center; 
     background-repeat: no-repeat; 
     
-    font-family: 'Source Sans Pro';
+    font-family: 'Times New Roman', Times, serif !important;
     margin: 0;
     color: black;
     font-size: 24px;
@@ -20,7 +20,7 @@ body {
         }
 
         #header-bar {
-            font-family: 'Source Sans Pro';
+            font-family: 'Times New Roman', Times, serif !important;
             margin: 0px;/* Remove margin from the header */
             background-color: white;
             color: #3b3b3b; /* Change text color to be visible against the white background */

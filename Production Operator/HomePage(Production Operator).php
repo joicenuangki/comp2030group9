@@ -8,7 +8,6 @@
     <meta name="author" content="Joice" /><!-- TODO: enter your name as the content attribute value -->
     <meta name="description" content="Practical 1" />
     <link rel="stylesheet" href="../Styles/Style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
     <title>My Portfolio</title>
     
 </head>
@@ -33,13 +32,13 @@
     <style>
 
         h1{
-            font-family: 'Source Sans Pro';
+            font-family: 'Times New Roman', Times, serif;
             font-size: 70px !important;
             text-align: center;
         }
 
         button {
-            font-family: 'Source Sans Pro' !important; 
+            font-family: 'Times New Roman', Times, serif; 
             background-color: black; 
             font-size: 16px; 
             color: white; 

@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Joice & Nathan" />
     <link rel="stylesheet" href="../Styles/Style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
 <body id="login-body">
     <header>
         <h1>Welcome to the Smart Manufactoring Dashboard</h1>
     </header>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     <main>
         <h2>Sign In to Start</h2>
         <?php echo(isset($_POST['employeeID']) && isset($_POST['password']) ? "<p id='login-error-p'>Your Employee ID or Password is <b>Incorrect</b><br>Please Try Again or Contact an Administrator.</p>" : ""); ?>
@@ -33,13 +30,13 @@
         <style>
 
         li {
-        margin-bottom: 1px; /* Space between each list item */
+        margin-bottom: 1px; 
         }
 
         label {
         font-size: 20px;
-        display: block; /* Ensures the label takes up the full width */
-        margin-bottom: 5px; /* Space between the label and input */
+        display: block; 
+        margin-bottom: 5px; 
         }
 
         ::placeholder {
@@ -48,17 +45,17 @@
         }
 
         #login-error-p {
-                font-family: 'Source Sans Pro', sans-serif; /* Set the desired font */
-                color: red; /* Optional: Change text color to red for visibility */
-                margin-top: 10px; /* Optional: Add some spacing above the message */
-                font-size: 19px; /* Font size */
+                font-family: 'Source Sans Pro', sans-serif; 
+                color: red; 
+                margin-top: 10px; 
+                font-size: 19px; 
             }
 
         #sign-in {
-                font-family: 'Source Sans Pro'; /* Font for the button */
-                background-color: black; /* Button background color */
-                font-size: 16px; /* Font size */
-                color: white; /* Text color */
+                font-family: 'Source Sans Pro'; 
+                background-color: black; 
+                font-size: 16px; 
+                color: white; 
                 width: 210px;
                 border-radius: 10px; 
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -66,15 +63,15 @@
             }
 
         #sign-in:hover {
-            background-color: #444; /* Change this to your desired hover color */  
+            background-color: #444;
         } 
 
         input { 
         font-family: 'Source Sans Pro';  
-        font-size: 16px; /* Font size */ 
-        padding: 19px; /* Add some padding for better appearance */
-        border: none; /* Basic border */
-        border-radius: 2px;  /* Rounded corners */
+        font-size: 16px; 
+        padding: 19px; 
+        border: none; 
+        border-radius: 2px; 
         text-align: center;
         outline: none;
         }

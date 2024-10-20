@@ -1,5 +1,4 @@
 <meta name="author" content="Nathan & Joice" >
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
 
 <style>
         h1 {
@@ -24,20 +23,20 @@
 
         ul {
             list-style-type: none; 
-            padding: 500px; /* Space inside the box */
-            width: 450px; /* Box size fits the content of the text */
+            padding: 500px; 
+            width: 450px; 
             height: 400px;
-            margin: 0 auto; /* Center the box horizontally */
-            border: 2px white; /* Optional: Adds a border around the box */
-            background-color: white; /* Change this to your desired color */
+            margin: 0 auto; 
+            border: 2px white; 
+            background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
             border-radius: 15px; 
 
 
-            display: flex; /* Enable Flexbox */
-            flex-direction: column; /* Arrange items in a column */
-            justify-content: center; /* Center items vertically */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
 
             font-family: 'Source Sans Pro';
         }

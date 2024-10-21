@@ -11,7 +11,6 @@
 
 $employees = $conn->query("SELECT FName, LName, EmployeeID FROM employees WHERE Role ='Production Operator'");
 
-//array of employee names for my list after
 $employeeList = [];
 while ($rows = $employees->fetch_assoc()) {
     $employeeList[] = ['id' => $rows['EmployeeID'], 'name' => $rows['FName'] . " " . $rows['LName']];
@@ -96,7 +95,7 @@ $conn->close();
 
                 <label for="priority">Priority</label>
                 <select id="priority" name="priority">
-                    <option value="Low" selected>Low</option> <!-- Selected preselects the option-->
+                    <option value="Low" selected>Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
                 </select>
@@ -130,7 +129,6 @@ $conn->close();
 
     <script src="jobjs.js"></script>
 
-    <!-- Pass the PHP employee list to JavaScript queried chat gpt about transfering variables from php to javascript -->
     <script>
         const employeeNames = <?php echo json_encode($employeeList); ?>;
     </script>

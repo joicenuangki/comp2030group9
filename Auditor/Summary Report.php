@@ -31,12 +31,10 @@
     </form>
 
     <?php
-    //fetch logs from logs
     require_once "../inc/dbconn.inc.php";
 
-    // Check if the form is submitted
+
     if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
-        // Get the start and end dates from the form
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
 

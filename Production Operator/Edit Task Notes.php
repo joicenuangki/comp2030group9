@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="../Styles/Production Operator.css">
     <title>Edit Task Notes</title>
 </head>
-<body>
+<body id="edit-task-note">
     <header>
         <?php include_once '../inc/header.inc.php';?>
         <h1>Edit Task Note</h1>

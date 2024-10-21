@@ -281,3 +281,35 @@
         background-color: rgb(219, 50, 64);
     }
 }
+
+#home-administrator h1{
+    font-size: 70px;
+    text-align: center;
+}
+    
+#home-administrator button {
+    background-color: black; 
+    font-size: 16px; 
+    color: white; 
+    width: 210px;
+    height: 50px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    border: black;
+    display: block; 
+    margin: 10px auto; 
+    cursor: pointer;
+}
+    
+#home-administrator button:hover {
+    background-color: #444; 
+} 
+    
+#home-administrator #user-role {
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    width: fit-content;
+}

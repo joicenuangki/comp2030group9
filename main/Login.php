@@ -1,47 +1,4 @@
-<meta name="author" content="Nathan & Joice" >
-
-<style>
-        h1 {
-            color: black; 
-            font-family: 'Source Sans Pro';
-            font-size:60px !important;
-        }
-
-        h2 {
-            color: black; 
-            font-family: 'Source Sans Pro';
-            font-size:30px !important;
-        }
-
-        body {
-            background-image: url(Screenshot\ 2024-10-20\ 183808.png);
-            background-size: 125%; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            
-        }
-
-        ul {
-            list-style-type: none; 
-            padding: 500px; 
-            width: 450px; 
-            height: 400px;
-            margin: 0 auto; 
-            border: 2px white; 
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            border-radius: 15px; 
-
-
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-
-            font-family: 'Source Sans Pro';
-        }
-    
-    </style>
+<meta name="author" content="Nathan" >
 
 <?php
 

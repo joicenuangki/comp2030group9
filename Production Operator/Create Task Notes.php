@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../Styles/Production Operator.css">
     <title>Create Task Notes</title>
 </head>
-<body>
+<body id="create-task-note">
     <header>
         <?php include_once "../inc/header.inc.php"; ?>
         <h1>Create New Task Note</h1>

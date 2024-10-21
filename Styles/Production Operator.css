@@ -1,6 +1,8 @@
 #task-note-main ul {
     display: flex;
     justify-content: space-evenly;
+    list-style: none;
+    padding: 0px;
 }
 
 #task-note-main #task-note-buttons a button {
@@ -36,6 +38,11 @@
     padding-top: 10px;
     padding-bottom: 10px;
     display: block;
+}
+
+#view-notes-menu {
+    list-style: none;
+    padding: 0px;
 }
 
 #view-task-note-main #search-bar {
@@ -89,14 +96,33 @@
     display: block;
 }
 
-ul {
-    list-style: none;
-    padding-left: 0px;
+#create-task-note input, #create-task-note button, #create-task-note select {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
+#edit-task-note input, #edit-task-note button, #edit-task-note select {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
 
 #note-form-list {
     display: flex;
     justify-content: space-between;
+    list-style: none;
+    padding: 0px;
+    li ul {
+        padding: 0%;
+        list-style: none;
+    }
 }
 
 #note-form-list input {
@@ -174,6 +200,7 @@ ul {
 #jobs-main table {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
 }
 
 #jobs-main table td {
@@ -190,13 +217,11 @@ ul {
 
 
 #home-production-operator h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 70px !important;
-    text-align: center !important;
+    font-size: 70px;
+    text-align: center;
 }
 
 #home-production-operator button {
-    font-family: 'Times New Roman', Times, serif;
     background-color: black;
     font-size: 16px;
     color: white;
@@ -208,6 +233,7 @@ ul {
     border: black;
     display: block;
     margin: 10px auto;
+    cursor: pointer;
 }
 
 #home-production-operator button:hover {

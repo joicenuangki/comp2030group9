@@ -73,8 +73,7 @@ $conn->close();
 
 
 
-            <?php
-            // Generate dropdowns for each assigned employee    
+            <?php 
             for ($i = 1; $i <= count($chosenJobEmployees); $i++) {
                 echo '<label for="employee_' . $i . '">Employee ' . $i . '</label>';
                 echo '<select id="employee_' . $i . '" name="employee_' . $i . '">';
@@ -214,7 +213,6 @@ $conn->close();
 
     <script src="jobedit.js"></script>
 
-    <!-- Pass the PHP employee list to JavaScript queried chat gpt about transfering variables from php to javascript -->
     <script>
         const employeeNames = <?php echo json_encode($employeeList); ?>;
         const employeeNameSet = <?php echo json_encode($chosenJobEmployees)?>;

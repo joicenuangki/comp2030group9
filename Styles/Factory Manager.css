@@ -436,13 +436,11 @@ textarea {
 }
 
 #home-factory-manager h1 {
-    font-family: 'Source Sans Pro';
     font-size: 70px !important;
     text-align: center !important;
 }
 
 #home-factory-manager button {
-    font-family: 'Source Sans Pro' !important;
     background-color: black;
     font-size: 16px;
     color: white;

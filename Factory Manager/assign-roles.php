@@ -91,7 +91,6 @@ while($row = $employees->fetch_assoc()) {
         </tr>
         </form>";
     
-    // Reset the result set pointer for the $specs query so it can be reused in the next loop
 
 }
                     
